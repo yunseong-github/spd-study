@@ -30,7 +30,35 @@ public class Data {
     public int moving;
     public int earnEXP;
 
-    // 변수 저장을 쉽게 하기 위해 임시 저장
+    // 장착 아이템의 정보보
+   public int weapon_damage;
+    public int weapon_strreq;
+    public int weapon_static;
+
+    public int armor_armor;
+    public int armor_strreq;
+    /*
+        무기.max(int 강화수치)
+        무기.min(int 강화수치)
+        해당 무기의 최소/최대 대미지
+
+        무기.STRReq(int 강화수치)
+        해당 무기의 요구 힘 수치량
+
+        무기.getWEAPON_STATIC()
+        해당 무기의 강화효율
+        
+        방어구.DRMin(int 강화수치)
+        방어구.DRMax(int 강화수치)
+        해당 방어구의 최소/최대 방어력
+        
+        방어구.STRReq(int 강화수치)
+        해당 방어구의 요구 힘 수치량 
+     */
+    
+
+
+    / 변수 저장을 쉽게 하기 위해 임시 저장
     static private int totalDamaged;
     static private int totalEXP;
     
