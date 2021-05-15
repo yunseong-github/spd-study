@@ -30,7 +30,7 @@ public class Gauntlet extends MeleeWeapon {
 		image = ItemSpriteSheet.GAUNTLETS;
 		hitSound = Assets.Sounds.HIT_CRUSH;
 		hitSoundPitch = 1.2f;
-		
+		WEAPON_STATIC=1;
 		tier = 5;
 		DLY = 0.5f; //2x speed
 	}
@@ -38,7 +38,7 @@ public class Gauntlet extends MeleeWeapon {
 	@Override
 	public int max(int lvl) {
 		return  Math.round(2.5f*(tier+1)) +     //15 base, down from 30
-				lvl*Math.round(0.5f*(tier+1));  //+3 per level, down from +6
+				lvl*Math.round(0.5f*(tier+WEAPON_STATIC));  //+3 per level, down from +6
 	}
 
 }

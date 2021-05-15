@@ -30,7 +30,7 @@ public class Spear extends MeleeWeapon {
 		image = ItemSpriteSheet.SPEAR;
 		hitSound = Assets.Sounds.HIT_STAB;
 		hitSoundPitch = 0.9f;
-
+		WEAPON_STATIC=1;
 		tier = 2;
 		DLY = 1.5f; //0.67x speed
 		RCH = 2;    //extra reach
@@ -39,7 +39,7 @@ public class Spear extends MeleeWeapon {
 	@Override
 	public int max(int lvl) {
 		return  Math.round(6.67f*(tier+1)) +    //20 base, up from 15
-				lvl*Math.round(1.33f*(tier+1)); //+4 per level, up from +3
+				lvl*Math.round(1.33f*(tier+WEAPON_STATIC)); //+4 per level, up from +3
 	}
 
 }

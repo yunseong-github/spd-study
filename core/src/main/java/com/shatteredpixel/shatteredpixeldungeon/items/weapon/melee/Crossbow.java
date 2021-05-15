@@ -30,7 +30,7 @@ public class Crossbow extends MeleeWeapon {
 		image = ItemSpriteSheet.CROSSBOW;
 		hitSound = Assets.Sounds.HIT;
 		hitSoundPitch = 1f;
-		
+		WEAPON_STATIC=0;
 		//check Dart.class for additional properties
 		
 		tier = 4;
@@ -38,7 +38,7 @@ public class Crossbow extends MeleeWeapon {
 	
 	@Override
 	public int max(int lvl) {
-		return  4*(tier+1) +    //20 base, down from 25
-				lvl*(tier);     //+4 per level, down from +5
+		return  WEAPON_STATIC*(tier+1) +    //20 base, down from 25
+				lvl*(tier+WEAPON_STATIC);     //+4 per level, down from +5
 	}
 }

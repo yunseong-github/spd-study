@@ -30,7 +30,7 @@ public class Sai extends MeleeWeapon {
 		image = ItemSpriteSheet.SAI;
 		hitSound = Assets.Sounds.HIT_STAB;
 		hitSoundPitch = 1.3f;
-
+		WEAPON_STATIC=1;
 		tier = 3;
 		DLY = 0.5f; //2x speed
 	}
@@ -38,7 +38,7 @@ public class Sai extends MeleeWeapon {
 	@Override
 	public int max(int lvl) {
 		return  Math.round(2.5f*(tier+1)) +     //10 base, down from 20
-				lvl*Math.round(0.5f*(tier+1));  //+2 per level, down from +4
+				lvl*Math.round(0.5f*(tier+WEAPON_STATIC));  //+2 per level, down from +4
 	}
 
 }

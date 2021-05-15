@@ -75,7 +75,7 @@ public class MagesStaff extends MeleeWeapon {
 
 		defaultAction = AC_ZAP;
 		usesTargeting = true;
-
+		WEAPON_STATIC=1;
 		unique = true;
 		bones = false;
 	}
@@ -87,7 +87,7 @@ public class MagesStaff extends MeleeWeapon {
 	@Override
 	public int max(int lvl) {
 		return  4*(tier+1) +    //8 base damage, down from 10
-				lvl*(tier+1);   //scaling unaffected
+				lvl*(tier+WEAPON_STATIC);   //scaling unaffected
 	}
 
 	public MagesStaff(Wand wand){

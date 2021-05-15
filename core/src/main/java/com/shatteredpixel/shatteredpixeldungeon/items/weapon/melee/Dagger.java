@@ -34,7 +34,7 @@ public class Dagger extends MeleeWeapon {
 		image = ItemSpriteSheet.DAGGER;
 		hitSound = Assets.Sounds.HIT_STAB;
 		hitSoundPitch = 1.1f;
-
+		WEAPON_STATIC=1;
 		tier = 1;
 		
 		bones = false;
@@ -43,7 +43,7 @@ public class Dagger extends MeleeWeapon {
 	@Override
 	public int max(int lvl) {
 		return  4*(tier+1) +    //8 base, down from 10
-				lvl*(tier+1);   //scaling unchanged
+				lvl*(tier+WEAPON_STATIC);   //scaling unchanged
 	}
 	
 	@Override

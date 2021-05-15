@@ -30,14 +30,14 @@ public class Greataxe extends MeleeWeapon {
 		image = ItemSpriteSheet.GREATAXE;
 		hitSound = Assets.Sounds.HIT_SLASH;
 		hitSoundPitch = 1f;
-
+		WEAPON_STATIC=1;
 		tier = 5;
 	}
 
 	@Override
 	public int max(int lvl) {
 		return  5*(tier+4) +    //45 base, up from 30
-				lvl*(tier+1);   //scaling unchanged
+				lvl*(tier+WEAPON_STATIC);   //scaling unchanged
 	}
 
 	@Override

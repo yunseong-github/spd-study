@@ -30,7 +30,7 @@ public class RunicBlade extends MeleeWeapon {
 		image = ItemSpriteSheet.RUNIC_BLADE;
 		hitSound = Assets.Sounds.HIT_SLASH;
 		hitSoundPitch = 1f;
-
+		WEAPON_STATIC=2;
 		tier = 4;
 	}
 
@@ -40,6 +40,6 @@ public class RunicBlade extends MeleeWeapon {
 	@Override
 	public int max(int lvl) {
 		return  5*(tier) +                	//20 base, down from 25
-				Math.round(lvl*(tier+2));	//+6 per level, up from +5
+				Math.round(lvl*(tier+WEAPON_STATIC));	//+6 per level, up from +5
 	}
 }

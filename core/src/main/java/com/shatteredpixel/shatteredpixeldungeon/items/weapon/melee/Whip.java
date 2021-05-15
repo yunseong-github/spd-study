@@ -30,7 +30,7 @@ public class Whip extends MeleeWeapon {
 		image = ItemSpriteSheet.WHIP;
 		hitSound = Assets.Sounds.HIT;
 		hitSoundPitch = 1.1f;
-
+		WEAPON_STATIC=0;
 		tier = 3;
 		RCH = 3;    //lots of extra reach
 	}
@@ -38,7 +38,7 @@ public class Whip extends MeleeWeapon {
 	@Override
 	public int max(int lvl) {
 		return  3*(tier+1) +    //12 base, down from 20
-				lvl*(tier);     //+3 per level, down from +4
+				lvl*(tier+WEAPON_STATIC);     //+3 per level, down from +4
 	}
 
 }

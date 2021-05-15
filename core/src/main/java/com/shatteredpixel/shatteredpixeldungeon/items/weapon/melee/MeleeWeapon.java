@@ -31,7 +31,7 @@ import com.watabou.utils.Random;
 public class MeleeWeapon extends Weapon {
 	
 	public int tier;
-
+	public int WEAPON_STATIC=1;
 	@Override
 	public int min(int lvl) {
 		return  tier +  //base
@@ -40,14 +40,16 @@ public class MeleeWeapon extends Weapon {
 
 	@Override
 	public int max(int lvl) {
-		return  5*(tier+1) +    //base
-				lvl*(tier+1);   //level scaling
+		return  4*(tier+1) +    //base
+				lvl*(tier+WEAPON_STATIC);   //level scaling
 	}
 
 	public int STRReq(int lvl){
 		return STRReq(tier, lvl);
 	}
-	
+	public int getWEAPON_STATIC(){
+		return WEAPON_STATIC;
+	}
 	@Override
 	public int damageRoll(Char owner) {
 		int damage = augment.damageFactor(super.damageRoll( owner ));

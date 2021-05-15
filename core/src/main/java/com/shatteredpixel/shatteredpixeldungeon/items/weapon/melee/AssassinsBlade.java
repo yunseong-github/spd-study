@@ -31,6 +31,7 @@ import com.watabou.utils.Random;
 public class AssassinsBlade extends MeleeWeapon {
 
 	{
+		WEAPON_STATIC=1;
 		image = ItemSpriteSheet.ASSASSINS_BLADE;
 		hitSound = Assets.Sounds.HIT_STAB;
 		hitSoundPitch = 0.9f;
@@ -41,7 +42,7 @@ public class AssassinsBlade extends MeleeWeapon {
 	@Override
 	public int max(int lvl) {
 		return  4*(tier+1) +    //20 base, down from 25
-				lvl*(tier+1);   //scaling unchanged
+				lvl*(tier+WEAPON_STATIC);   //scaling unchanged
 	}
 
 	@Override

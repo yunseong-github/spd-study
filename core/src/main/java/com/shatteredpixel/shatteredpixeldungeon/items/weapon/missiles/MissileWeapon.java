@@ -70,7 +70,7 @@ abstract public class MissileWeapon extends Weapon {
 	protected MissileWeapon parent;
 	
 	public int tier;
-	
+	public int WEAPON_STATIC=0;
 	@Override
 	public int min() {
 		return Math.max(0, min( buffedLvl() + RingOfSharpshooting.levelDamageBonus(Dungeon.hero) ));
@@ -90,13 +90,17 @@ abstract public class MissileWeapon extends Weapon {
 	@Override
 	public int max(int lvl) {
 		return  5 * tier +                      //base
-				(tier == 1 ? 2*lvl : tier*lvl); //level scaling
+				(tier == 1 ? (2+WEAPON_STATIC)*lvl : (tier+WEAPON_STATIC)*lvl); //level scaling
 	}
 	
 	public int STRReq(int lvl){
 		return STRReq(tier, lvl) - 1; //1 less str than normal for their tier
 	}
-	
+
+	public int getWEAPON_STATIC() {
+		return WEAPON_STATIC;
+	}
+
 	@Override
 	//FIXME some logic here assumes the items are in the player's inventory. Might need to adjust
 	public Item upgrade() {

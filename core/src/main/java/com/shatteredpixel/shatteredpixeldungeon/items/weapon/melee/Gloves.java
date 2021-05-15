@@ -30,7 +30,7 @@ public class Gloves extends MeleeWeapon {
 		image = ItemSpriteSheet.GLOVES;
 		hitSound = Assets.Sounds.HIT;
 		hitSoundPitch = 1.3f;
-
+		WEAPON_STATIC=1;
 		tier = 1;
 		DLY = 0.5f; //2x speed
 		
@@ -40,7 +40,7 @@ public class Gloves extends MeleeWeapon {
 	@Override
 	public int max(int lvl) {
 		return  Math.round(2.5f*(tier+1)) +     //5 base, down from 10
-				lvl*Math.round(0.5f*(tier+1));  //+1 per level, down from +2
+				lvl*Math.round(0.5f*(tier+WEAPON_STATIC));  //+1 per level, down from +2
 	}
 
 }
