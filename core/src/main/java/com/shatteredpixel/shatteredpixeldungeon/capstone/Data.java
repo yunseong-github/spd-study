@@ -1,7 +1,13 @@
 package com.shatteredpixel.shatteredpixeldungeon.capstone;
 
 import com.shatteredpixel.shatteredpixeldungeon.actors.mobs.Mob;
+import com.shatteredpixel.shatteredpixeldungeon.actors.hero.Hero;
+import com.shatteredpixel.shatteredpixeldungeon.actors.hero.Belongings;
+
 import com.shatteredpixel.shatteredpixeldungeon.levels.traps.Trap;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.Weapon;
+import com.shatteredpixel.shatteredpixeldungeon.items.armor.Armor;
+
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -29,9 +35,14 @@ public class Data {
     public int killMonster;
     public int moving;
     public int earnEXP;
+    public Hero hero;
+
+    public Weapon hero_weapon = hero.belongings.weapon;
+
+    public Armor hero_armor = hero.belongings.weapon;
 
     // 장착 아이템의 정보보
-   public int weapon_damage;
+    public int weapon_damage;
     public int weapon_strreq;
     public int weapon_static;
 
@@ -55,10 +66,9 @@ public class Data {
         방어구.STRReq(int 강화수치)
         해당 방어구의 요구 힘 수치량 
      */
-    
 
 
-    / 변수 저장을 쉽게 하기 위해 임시 저장
+    // 변수 저장을 쉽게 하기 위해 임시 저장
     static private int totalDamaged;
     static private int totalEXP;
     
@@ -116,7 +126,7 @@ public class Data {
         while (it.hasNext())
             spawnMobsEXP.add(it.next().EXP);
     }
-
+    public void
     // Hero.java 편집
     public void storeHP(int HP){
         this.hp = HP;

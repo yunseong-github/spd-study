@@ -288,7 +288,7 @@ public class Belongings implements Iterable<Item> {
 		
 		return count;
 	}
-
+	public Weapon hero_weapon;
 	@Override
 	public Iterator<Item> iterator() {
 		return new ItemIterator();
@@ -302,7 +302,8 @@ public class Belongings implements Iterable<Item> {
 		
 		private Item[] equipped = {weapon, armor, artifact, misc, ring};
 		private int backpackIndex = equipped.length;
-		
+
+
 		@Override
 		public boolean hasNext() {
 			
@@ -351,4 +352,5 @@ public class Belongings implements Iterable<Item> {
 			}
 		}
 	}
+
 }
