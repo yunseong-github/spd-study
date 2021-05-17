@@ -134,4 +134,5 @@ public class MeleeWeapon extends Weapon {
 		return price;
 	}
 
+
 }

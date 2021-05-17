@@ -3,6 +3,7 @@ package com.shatteredpixel.shatteredpixeldungeon.capstone;
 import com.shatteredpixel.shatteredpixeldungeon.actors.mobs.Mob;
 import com.shatteredpixel.shatteredpixeldungeon.actors.hero.Hero;
 import com.shatteredpixel.shatteredpixeldungeon.actors.hero.Belongings;
+import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
 
 import com.shatteredpixel.shatteredpixeldungeon.levels.traps.Trap;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.Weapon;
@@ -35,11 +36,11 @@ public class Data {
     public int killMonster;
     public int moving;
     public int earnEXP;
-    public Hero hero;
 
-    public Weapon hero_weapon = hero.belongings.weapon;
 
-    public Armor hero_armor = hero.belongings.weapon;
+    public Weapon hero_weapon=Dungeon.hero.belongings.weapon;
+
+    public Armor hero_armor=Dungeon.hero.belongings.armor;
 
     // 장착 아이템의 정보보
     public int weapon_damage;
@@ -48,7 +49,14 @@ public class Data {
 
     public int armor_armor;
     public int armor_strreq;
-    /*
+
+    weapon_damage = (hero_weapon.max(level())+hero_weapon.min(level()))/2;
+    weapon_strreq = hero_weapon.STRReq(level());
+    weapon_static = hero_weapon.getWEAPON_STATIC();
+
+    armor_armor =
+
+/*
         무기.max(int 강화수치)
         무기.min(int 강화수치)
         해당 무기의 최소/최대 대미지
