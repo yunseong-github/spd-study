@@ -52,7 +52,7 @@ public abstract class Spell extends Item {
 		super.execute( hero, action );
 		
 		if (action.equals( AC_CAST )) {
-			
+			Dungeon.spell_cnt=Dungeon.spell_cnt+1;
 			if (curUser.buff(MagicImmune.class) != null){
 				GLog.w( Messages.get(this, "no_magic") );
 				return;

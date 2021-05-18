@@ -98,6 +98,7 @@ public class Bomb extends Item {
 	public void execute(Hero hero, String action) {
 
 		if (action.equals(AC_LIGHTTHROW)) {
+			Dungeon.bombs_cnt=Dungeon.bombs_cnt+1;
 			lightingFuse = true;
 			action = AC_THROW;
 		} else
@@ -135,7 +136,7 @@ public class Bomb extends Item {
 		//We're blowing up, so no need for a fuse anymore.
 		this.fuse = null;
 
-		Dungeon.bombs_cnt=Dungeon.bombs_cnt+1;
+
 		Sample.INSTANCE.play( Assets.Sounds.BLAST );
 
 		if (explodesDestructively()) {
