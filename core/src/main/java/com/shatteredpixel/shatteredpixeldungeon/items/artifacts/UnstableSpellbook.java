@@ -108,6 +108,7 @@ public class UnstableSpellbook extends Artifact {
 		super.execute( hero, action );
 
 		if (action.equals( AC_READ )) {
+			Dungeon.artifacts_cnt=Dungeon.artifacts_cnt+1;
 
 			if (hero.buff( Blindness.class ) != null) GLog.w( Messages.get(this, "blinded") );
 			else if (!isEquipped( hero ))             GLog.i( Messages.get(Artifact.class, "need_to_equip") );
@@ -172,6 +173,8 @@ public class UnstableSpellbook extends Artifact {
 			}
 
 		} else if (action.equals( AC_ADD )) {
+			Dungeon.artifacts_cnt=Dungeon.artifacts_cnt+1;
+
 			GameScene.selectItem(itemSelector, mode, Messages.get(this, "prompt"));
 		}
 	}

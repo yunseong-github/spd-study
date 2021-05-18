@@ -128,7 +128,7 @@ public class DriedRose extends Artifact {
 		super.execute(hero, action);
 
 		if (action.equals(AC_SUMMON)) {
-
+			Dungeon.artifacts_cnt=Dungeon.artifacts_cnt+1;
 			if (!Ghost.Quest.completed())   GameScene.show(new WndUseItem(null, this));
 			else if (ghost != null)         GLog.i( Messages.get(this, "spawned") );
 			else if (!isEquipped( hero ))   GLog.i( Messages.get(Artifact.class, "need_to_equip") );
@@ -181,6 +181,7 @@ public class DriedRose extends Artifact {
 			}
 
 		} else if (action.equals(AC_DIRECT)){
+			Dungeon.artifacts_cnt=Dungeon.artifacts_cnt+1;
 			if (ghost == null && ghostID != 0){
 				Actor a = Actor.findById(ghostID);
 				if (a != null){
@@ -192,6 +193,7 @@ public class DriedRose extends Artifact {
 			if (ghost != null) GameScene.selectCell(ghostDirector);
 			
 		} else if (action.equals(AC_OUTFIT)){
+			Dungeon.artifacts_cnt=Dungeon.artifacts_cnt+1;
 			GameScene.show( new WndGhostHero(this) );
 		}
 	}

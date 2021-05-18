@@ -76,7 +76,7 @@ public class AlchemistsToolkit extends Artifact {
 			else if (!alchemyReady)                                         GLog.i( Messages.get(this, "not_ready") );
 			else if (hero.visibleEnemies() > hero.mindVisionEnemies.size()) GLog.i( Messages.get(this, "enemy_near") );
 			else {
-				
+				Dungeon.artifacts_cnt=Dungeon.artifacts_cnt+1;
 				AlchemyScene.setProvider(hero.buff(kitEnergy.class));
 				Game.switchScene(AlchemyScene.class);
 			}

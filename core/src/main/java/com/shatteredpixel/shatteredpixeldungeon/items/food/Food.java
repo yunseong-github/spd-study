@@ -67,7 +67,7 @@ public class Food extends Item {
 		super.execute( hero, action );
 
 		if (action.equals( AC_EAT )) {
-			
+			Dungeon.food_cnt=Dungeon.food_cnt+1;
 			detach( hero.belongings.backpack );
 			
 			satisfy(hero);

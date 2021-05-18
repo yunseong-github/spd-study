@@ -83,7 +83,7 @@ public class HornOfPlenty extends Artifact {
 		super.execute(hero, action);
 
 		if (action.equals(AC_EAT)){
-
+			Dungeon.artifacts_cnt=Dungeon.artifacts_cnt+1;
 			if (!isEquipped(hero)) GLog.i( Messages.get(Artifact.class, "need_to_equip") );
 			else if (charge == 0)  GLog.i( Messages.get(this, "no_food") );
 			else {
@@ -131,7 +131,7 @@ public class HornOfPlenty extends Artifact {
 			}
 
 		} else if (action.equals(AC_STORE)){
-
+			Dungeon.artifacts_cnt=Dungeon.artifacts_cnt+1;
 			GameScene.selectItem(itemSelector, mode, Messages.get(this, "prompt"));
 
 		}

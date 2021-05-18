@@ -83,7 +83,7 @@ public class EtherealChains extends Artifact {
 		super.execute(hero, action);
 
 		if (action.equals(AC_CAST)){
-
+			Dungeon.artifacts_cnt=Dungeon.artifacts_cnt+1;
 			curUser = hero;
 
 			if (!isEquipped( hero )) {

@@ -83,6 +83,8 @@ public class MasterThievesArmband extends Artifact {
 		
 		@Override
 		public boolean act() {
+			Dungeon.artifacts_cnt=Dungeon.artifacts_cnt+1;
+
 			if (cursed) {
 				
 				if (Dungeon.gold > 0 && Random.Int(6) == 0){

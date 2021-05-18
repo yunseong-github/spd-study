@@ -78,6 +78,7 @@ public class TimekeepersHourglass extends Artifact {
 		super.execute(hero, action);
 
 		if (action.equals(AC_ACTIVATE)){
+			Dungeon.artifacts_cnt=Dungeon.artifacts_cnt+1;
 
 			if (!isEquipped( hero ))        GLog.i( Messages.get(Artifact.class, "need_to_equip") );
 			else if (activeBuff != null) {

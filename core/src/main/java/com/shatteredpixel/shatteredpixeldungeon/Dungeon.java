@@ -151,6 +151,13 @@ public class Dungeon {
 
 	public static int challenges;
 	public static int mobsToChampion;
+	//cnt변수 추가
+	public static int artifacts_cnt=0;
+	public static int bombs_cnt=0;
+	public static int food_cnt=0;
+	public static int potions_cnt=0;
+	public static int scrolls_cnt=0;
+	public static int stones_cnt=0;
 
 	public static Hero hero;
 	public static Level level;

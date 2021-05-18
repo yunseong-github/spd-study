@@ -110,7 +110,6 @@ public class LloydsBeacon extends Artifact {
 		super.execute( hero, action );
 
 		if (action == AC_SET || action == AC_RETURN) {
-			
 			if (Dungeon.bossLevel()) {
 				hero.spend( LloydsBeacon.TIME_TO_USE );
 				GLog.w( Messages.get(this, "preventing") );
@@ -127,7 +126,7 @@ public class LloydsBeacon extends Artifact {
 		}
 
 		if (action == AC_ZAP ){
-
+			Dungeon.artifacts_cnt=Dungeon.artifacts_cnt+1;
 			curUser = hero;
 			int chargesToUse = Dungeon.depth > 20 ? 2 : 1;
 
@@ -144,7 +143,7 @@ public class LloydsBeacon extends Artifact {
 			}
 
 		} else if (action == AC_SET) {
-			
+			Dungeon.artifacts_cnt=Dungeon.artifacts_cnt+1;
 			returnDepth = Dungeon.depth;
 			returnPos = hero.pos;
 			
@@ -157,7 +156,7 @@ public class LloydsBeacon extends Artifact {
 			GLog.i( Messages.get(this, "return") );
 			
 		} else if (action == AC_RETURN) {
-			
+			Dungeon.artifacts_cnt=Dungeon.artifacts_cnt+1;
 			if (returnDepth == Dungeon.depth) {
 				ScrollOfTeleportation.appear( hero, returnPos );
 				for(Mob m : Dungeon.level.mobs){

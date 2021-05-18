@@ -61,7 +61,7 @@ public class ChaliceOfBlood extends Artifact {
 		super.execute(hero, action);
 
 		if (action.equals(AC_PRICK)){
-
+			Dungeon.artifacts_cnt=Dungeon.artifacts_cnt+1;
 			int damage = 3*(level()*level());
 
 			if (damage > hero.HP*0.75) {

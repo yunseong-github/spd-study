@@ -82,7 +82,7 @@ public class CloakOfShadows extends Artifact {
 		super.execute(hero, action);
 
 		if (action.equals( AC_STEALTH )) {
-
+			Dungeon.artifacts_cnt=Dungeon.artifacts_cnt+1;
 			if (activeBuff == null){
 				if (!isEquipped(hero) && !hero.hasTalent(Talent.LIGHT_CLOAK)) GLog.i( Messages.get(Artifact.class, "need_to_equip") );
 				else if (cursed)       GLog.i( Messages.get(this, "cursed") );
