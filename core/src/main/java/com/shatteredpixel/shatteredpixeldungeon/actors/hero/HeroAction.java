@@ -66,6 +66,12 @@ public class HeroAction {
 	
 	public static class Descend extends HeroAction {
 		public Descend( int stairs ) {
+			Dungeon.artifacts_cnt=0;
+			Dungeon.bombs_cnt=0;
+			Dungeon.food_cnt=0;
+			Dungeon.potions_cnt=0;
+			Dungeon.scrolls_cnt=0;
+			Dungeon.stones_cnt=0;
 			this.dst = stairs;
 		}
 	}
