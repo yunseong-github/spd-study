@@ -184,6 +184,10 @@ public class Hero extends Char implements GetData {
 	
 	private ArrayList<Mob> visibleEnemies;
 
+	// Data에 총 입은 데미지 계산을 위한 변수
+	private int totalDamage = 0;
+	private int countStep = 0;
+
 	private int totalDamage = 0; // Data에 총 입은 데미지 계산을 위한 변수
 
 	//This list is maintained so that some logic checks can be skipped
@@ -282,13 +286,18 @@ public class Hero extends Char implements GetData {
 		belongings.restoreFromBundle( bundle );
 	}
 
+
+
 	public void storeInData( Data data ){
 		data.storeHP(HP);
 		data.storeHT(HT);
 		data.storeDamaged(totalDamage);
-		data.storeEarnEXP(exp);
+		data.storeMoving(countStep);
+		data.storeAttackDamage(totalAttackDamage);
+		data.storeKillMonster(countKillingMonster);
+		data.storeEarnEXP(totalEXP);
 	}
-	
+
 	public static void preview( GamesInProgress.Info info, Bundle bundle ) {
 		info.level = bundle.getInt( LEVEL );
 		info.str = bundle.getInt( STRENGTH );
@@ -1293,6 +1302,7 @@ public class Hero extends Char implements GetData {
 					return false;
 				}
 				if (Dungeon.level.passable[target] || Dungeon.level.avoid[target]) {
+					if(step != target) countStep += 1 ; // step 횟수 count
 					step = target;
 				}
 				if (walkingToVisibleTrapInFog
@@ -1441,7 +1451,8 @@ public class Hero extends Char implements GetData {
 	}
 	
 	public void earnExp( int exp, Class source ) {
-		
+		totalEXP += exp;
+
 		this.exp += exp;
 		float percent = exp/(float)maxExp();
 
@@ -1580,7 +1591,7 @@ public class Hero extends Char implements GetData {
 		}
 
 		if (ankh != null && ankh.isBlessed()) {
-			this.HP = HT/4;
+				this.HP = HT/4;
 
 			//ensures that you'll get to act first in almost any case, to prevent reviving and then instantly dieing again.
 			PotionOfHealing.cure(this);

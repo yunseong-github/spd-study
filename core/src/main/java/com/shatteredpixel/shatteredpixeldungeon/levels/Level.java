@@ -21,6 +21,9 @@
 
 package com.shatteredpixel.shatteredpixeldungeon.levels;
 
+import com.shatteredpixel.shatteredpixeldungeon.capstone.GetData;
+import com.shatteredpixel.shatteredpixeldungeon.capstone.Data;
+// capstone data 받아오기 위해 import
 import com.shatteredpixel.shatteredpixeldungeon.Assets;
 import com.shatteredpixel.shatteredpixeldungeon.Challenges;
 import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
@@ -180,6 +183,8 @@ public abstract class Level implements Bundlable, GetData {
 	private static final String MOBS		= "mobs";
 	private static final String BLOBS		= "blobs";
 	private static final String FEELING		= "feeling";
+
+	public HashSet<Mob> mobs_clone; // RegularLevel.java의 createMobs()안에서 clone됨
 
 	public void create() {
 
@@ -438,10 +443,10 @@ public abstract class Level implements Bundlable, GetData {
 		data.addStatusAbnormal(flamable);
 		data.addStatusAbnormal(solid);
 		data.addStatusAbnormal(avoid);
-		data.storeMobs(mobs);
+		data.storeMobs(mobs_clone);
 		data.storeTraps(traps.valueList());
 	}
-	
+
 	public int tunnelTile() {
 		return feeling == Feeling.CHASM ? Terrain.EMPTY_SP : Terrain.EMPTY;
 	}
@@ -479,6 +484,7 @@ public abstract class Level implements Bundlable, GetData {
 		if (Dungeon.isChallenged(Challenges.CHAMPION_ENEMIES)){
 			ChampionEnemy.rollForChampion(m);
 		}
+
 		return m;
 	}
 
