@@ -83,7 +83,8 @@ public class Armor extends EquipableItem {
 		
 		private float evasionFactor;
 		private float defenceFactor;
-		
+
+
 		Augment(float eva, float df){
 			evasionFactor = eva;
 			defenceFactor = df;
