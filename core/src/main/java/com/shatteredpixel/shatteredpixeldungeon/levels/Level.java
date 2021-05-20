@@ -21,6 +21,9 @@
 
 package com.shatteredpixel.shatteredpixeldungeon.levels;
 
+import com.shatteredpixel.shatteredpixeldungeon.capstone.GetData;
+import com.shatteredpixel.shatteredpixeldungeon.capstone.Data;
+// capstone data 받아오기 위해 import
 import com.shatteredpixel.shatteredpixeldungeon.Assets;
 import com.shatteredpixel.shatteredpixeldungeon.Challenges;
 import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
@@ -95,7 +98,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 
-public abstract class Level implements Bundlable {
+public abstract class Level implements Bundlable, GetData {
 	
 	public static enum Feeling {
 		NONE,
@@ -176,6 +179,8 @@ public abstract class Level implements Bundlable {
 	private static final String MOBS		= "mobs";
 	private static final String BLOBS		= "blobs";
 	private static final String FEELING		= "feeling";
+
+	public HashSet<Mob> mobs_clone; // RegularLevel.java의 createMobs()안에서 clone됨
 
 	public void create() {
 
@@ -427,6 +432,16 @@ public abstract class Level implements Bundlable {
 		bundle.put( "mobs_to_spawn", mobsToSpawn.toArray(new Class[0]));
 		bundle.put( "respawner", respawner );
 	}
+
+	// *************************************
+	@Override
+	public void storeInData( Data data ) {
+		data.addStatusAbnormal(flamable);
+		data.addStatusAbnormal(solid);
+		data.addStatusAbnormal(avoid);
+		data.storeMobs(mobs_clone);
+		data.storeTraps(traps.valueList());
+	}
 	
 	public int tunnelTile() {
 		return feeling == Feeling.CHASM ? Terrain.EMPTY_SP : Terrain.EMPTY;
@@ -465,6 +480,7 @@ public abstract class Level implements Bundlable {
 		if (Dungeon.isChallenged(Challenges.CHAMPION_ENEMIES)){
 			ChampionEnemy.rollForChampion(m);
 		}
+
 		return m;
 	}
 
@@ -617,7 +633,7 @@ public abstract class Level implements Bundlable {
 			return null;
 
 		if (match == null){
-			Item item = Random.element(itemsToSpawn);
+			Item item = Random.element(itemsToSpawn); // itemstospawn 안에 들어있는 Item 객체 중 1개를 랜덤으로 골라서 제거하고 return
 			itemsToSpawn.remove(item);
 			return item;
 		}
@@ -862,6 +878,7 @@ public abstract class Level implements Bundlable {
 		GameScene.updateMap( pos );
 	}
 
+	// trap position 정하기
 	public Trap setTrap( Trap trap, int pos ){
 		Trap existingTrap = traps.get(pos);
 		if (existingTrap != null){

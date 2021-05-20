@@ -21,6 +21,9 @@
 
 package com.shatteredpixel.shatteredpixeldungeon;
 
+import com.shatteredpixel.shatteredpixeldungeon.capstone.GetData;
+import com.shatteredpixel.shatteredpixeldungeon.capstone.Data;
+// capstone data 받아오기 위해 import
 import com.shatteredpixel.shatteredpixeldungeon.actors.Actor;
 import com.shatteredpixel.shatteredpixeldungeon.actors.Char;
 import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Amok;
@@ -226,6 +229,12 @@ public class Dungeon {
 	}
 	
 	public static Level newLevel() {
+		if(depth > 0) {
+			Data data = new Data();
+			hero.storeInData(data);
+			level.storeInData(data);
+			data.print();
+		}
 		
 		Dungeon.level = null;
 		Actor.clear();

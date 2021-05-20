@@ -21,6 +21,9 @@
 
 package com.shatteredpixel.shatteredpixeldungeon.actors;
 
+import com.shatteredpixel.shatteredpixeldungeon.capstone.GetData;
+import com.shatteredpixel.shatteredpixeldungeon.capstone.Data;
+// capstone data 받아오기 위해 import
 import com.shatteredpixel.shatteredpixeldungeon.Assets;
 import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
 import com.shatteredpixel.shatteredpixeldungeon.actors.blobs.Electricity;
@@ -97,7 +100,7 @@ import com.watabou.utils.Random;
 import java.util.Arrays;
 import java.util.HashSet;
 
-public abstract class Char extends Actor {
+public abstract class Char extends Actor implements GetData {
 	
 	public int pos = 0;
 	
@@ -113,6 +116,9 @@ public abstract class Char extends Actor {
 	public boolean rooted		= false;
 	public boolean flying		= false;
 	public int invisible		= 0;
+
+	public int totalAttackDamage = 0;
+	public int countKillingMonster = 0;
 	
 	//these are relative to the hero
 	public enum Alignment{
@@ -268,6 +274,8 @@ public abstract class Char extends Actor {
 			}
 		}
 	}
+
+	public void storeInData( Data data ){};
 	
 	public boolean attack( Char enemy ) {
 
@@ -332,6 +340,8 @@ public abstract class Char extends Actor {
 
 			enemy.damage( effectiveDamage, this );
 
+			totalAttackDamage += effectiveDamage; // enemy에 attack이 가해지고 나서 추가
+
 			if (buff(FireImbue.class) != null)  buff(FireImbue.class).proc(enemy);
 			if (buff(FrostImbue.class) != null) buff(FrostImbue.class).proc(enemy);
 
@@ -350,6 +360,8 @@ public abstract class Char extends Actor {
 			enemy.sprite.flash();
 
 			if (!enemy.isAlive() && visibleFight) {
+				countKillingMonster += 1; // monster 죽일 시 count
+
 				if (enemy == Dungeon.hero) {
 					
 					if (this == Dungeon.hero) {

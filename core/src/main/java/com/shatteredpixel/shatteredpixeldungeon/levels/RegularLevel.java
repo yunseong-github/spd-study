@@ -62,6 +62,7 @@ import com.shatteredpixel.shatteredpixeldungeon.levels.traps.WornDartTrap;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
 
+import java.util.HashSet;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -249,6 +250,8 @@ public abstract class RegularLevel extends Level {
 			}
 
 		}
+
+		mobs_clone = (HashSet)mobs.clone(); // Data.java에 넣을 mobs 객체 복사
 
 	}
 
