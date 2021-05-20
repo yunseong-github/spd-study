@@ -40,6 +40,7 @@ public abstract class Actor implements Bundlable {
 
 	private int id = 0;
 
+
 	//default priority values for general actor categories
 	//note that some specific actors pick more specific values
 	//e.g. a buff acting after all normal buffs might have priority BUFF_PRIO + 1
