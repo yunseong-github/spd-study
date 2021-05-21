@@ -38,7 +38,7 @@ public class Data {
     public int earnEXP;
 
 
-    public Weapon hero_weapon=Dungeon.hero.belongings.weapon;
+    public Weapon hero_weapon = (Weapon) Dungeon.hero.belongings.weapon;
 
     public Armor hero_armor=Dungeon.hero.belongings.armor;
 
@@ -47,8 +47,27 @@ public class Data {
     public int weapon_strreq = hero_weapon.STRReq(level());
     public int weapon_static = hero_weapon.getWEAPON_STATIC();
 
-    public int armor_armor;
-    public int armor_strreq;
+    public int armor_armor = (hero_armor.DRMax(level())+hero_armor.DRMin(level()))/2;
+    public int armor_strreq = hero_armor.STRReq(level());
+    //아이템 사용횟수 리턴 함수
+    public int get_artifacts_cnt(){
+        return Dungeon.artifacts_cnt;
+    }
+    public int get_bombs_cnt(){
+        return Dungeon.bombs_cnt;
+    }
+    public int get_food_cnt(){
+        return Dungeon.food_cnt;
+    }
+    public int get_potions_cnt(){
+        return Dungeon.potions_cnt;
+    }
+    public int get_scrolls_cnt(){
+        return Dungeon.scrolls_cnt;
+    }
+    public int get_stones_cnt(){
+        return Dungeon.stones_cnt;
+    }
 
 
 
