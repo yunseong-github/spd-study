@@ -92,8 +92,12 @@ public class Data {
      */
 
 
+
     // 변수 저장을 쉽게 하기 위해 임시 저장
     static private int totalDamaged;
+    static private int totalAttackDamage;
+    static private int totalKillMonster;
+    static private int totalMoving;
     static private int totalEXP;
     
     // level.java 편집
@@ -104,53 +108,47 @@ public class Data {
         statusAbnormals.add(statusAbnormal);
     }
 
-    public void storeMobs(HashSet<Mob> mobs){
-        this.mobs = mobs;
-
-        Iterator<Mob> it = mobs.iterator();
-        storeSpawnMobsHT(it);
-        storeSpawnMobsATT(it);
-        storeSpawnMobsDEF(it);
-        storeSpawnMobsEXP(it);
-    }
-
-    public void storeTraps(List<Trap> traps){
-        this.traps = traps;
-    }
-
     // 스폰된 mob들의 정보 추출
-    public void storeSpawnMobsHT(Iterator<Mob> it){
-        if(spawnMobsHT == null) spawnMobsHT = new ArrayList<Integer>();
+    public void storeSpawnMobsHT(){
+        if(spawnMobsHT == null) spawnMobsHT = new ArrayList<>();
         else spawnMobsHT.clear();
-
-        while (it.hasNext())
-            spawnMobsHT.add(it.next().HT);
+        for(int i = 0; i < mobs.size(); i++)
+            spawnMobsHT.add(mobs.get(i).HT);
+        averageMobsHT = arrayListAverage(spawnMobsHT);
     }
 
-    public void storeSpawnMobsATT(Iterator<Mob> it){
-        if(spawnMobsATT == null) spawnMobsATT = new ArrayList<Integer>();
+    public void storeSpawnMobsATT(){
+        if(spawnMobsATT == null) spawnMobsATT = new ArrayList<>();
         else spawnMobsATT.clear();
-
-        while (it.hasNext())
-            spawnMobsATT.add((it.next().MAX_ATT + it.next().MIN_ATT) / 2);
+        for(int i = 0; i < mobs.size(); i++)
+            spawnMobsATT.add((mobs.get(i).MAX_ATT + mobs.get(i).MIN_ATT) / 2);
+        averageMobsATT = arrayListAverage(spawnMobsATT);
     }
 
-    public void storeSpawnMobsDEF(Iterator<Mob> it){
-        if(spawnMobsDEF == null) spawnMobsDEF = new ArrayList<Integer>();
+    public void storeSpawnMobsDEF(){
+        if(spawnMobsDEF == null) spawnMobsDEF = new ArrayList<>();
         else spawnMobsDEF.clear();
-
-        while (it.hasNext())
-            spawnMobsDEF.add((it.next().MAX_DEF + it.next().MIN_DEF) / 2);
+        for(int i = 0; i < mobs.size(); i++)
+            spawnMobsDEF.add((mobs.get(i).MAX_DEF + mobs.get(i).MIN_DEF) / 2);
+        averageMobsDEF = arrayListAverage(spawnMobsDEF);
     }
 
-    public void storeSpawnMobsEXP(Iterator<Mob> it){
-        if(spawnMobsEXP == null) spawnMobsEXP = new ArrayList<Integer>();
+    public void storeSpawnMobsEXP(){
+        if(spawnMobsEXP == null) spawnMobsEXP = new ArrayList<>();
         else spawnMobsEXP.clear();
-
-        while (it.hasNext())
-            spawnMobsEXP.add(it.next().EXP);
+        for(int i = 0; i < mobs.size(); i++)
+            spawnMobsEXP.add(mobs.get(i).EXP);
+        averageMobsEXP = arrayListAverage(spawnMobsEXP);
     }
-    public void
+
+    private double arrayListAverage(ArrayList<Integer> list) {
+        double temp = 0;
+        for(int i = 0; i < list.size(); i++)
+            temp += list.get(i);
+        temp = temp / list.size();
+        return temp;
+    }
+
     // Hero.java 편집
     public void storeHP(int HP){
         this.hp = HP;
@@ -165,21 +163,24 @@ public class Data {
         totalDamaged = damaged;
     }
 
-//    public void storeAttackDamage(int attackDamage){
-//        this.attackDamage = attackDamage;
-//    }
-//
-//    public void storeHealPoint(int healPoint){
+    public void storeAttackDamage(int attackDamage){
+        this.attackDamage = attackDamage - totalAttackDamage;
+        totalAttackDamage = attackDamage;
+    }
+
+    //    public void storeHealPoint(int healPoint){
 //        this.healPoint = healPoint;
 //    }
 //
-//    public void storeKillMonster(int killMonster){
-//        this.killMonster = killMonster;
-//    }
-//
-//    public void storeMoving(int moving){
-//        this.moving = moving;
-//    }
+    public void storeKillMonster(int killMonster){
+        this.killMonster = killMonster - totalKillMonster;
+        totalKillMonster = killMonster;
+    }
+
+    public void storeMoving(int moving){
+        this.moving = moving - totalMoving;
+        totalMoving = moving;
+    }
 
     public void storeEarnEXP(int EXP){
         this.earnEXP = EXP - totalEXP;
