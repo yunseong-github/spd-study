@@ -100,8 +100,6 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 
-// capstone data 받아오기 위해 import
-
 public abstract class Level implements Bundlable, GetData {
 	
 	public static enum Feeling {

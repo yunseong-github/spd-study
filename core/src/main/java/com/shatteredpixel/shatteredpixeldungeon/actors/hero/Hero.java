@@ -179,7 +179,8 @@ public class Hero extends Char implements GetData {
 	
 	public int lvl = 1;
 	public int exp = 0;
-	
+	public int totalEXP = 0; // Data 저장용 exp
+
 	public int HTBoost = 0;
 	
 	private ArrayList<Mob> visibleEnemies;
@@ -187,8 +188,6 @@ public class Hero extends Char implements GetData {
 	// Data에 총 입은 데미지 계산을 위한 변수
 	private int totalDamage = 0;
 	private int countStep = 0;
-
-	private int totalDamage = 0; // Data에 총 입은 데미지 계산을 위한 변수
 
 	//This list is maintained so that some logic checks can be skipped
 	// for enemies we know we aren't seeing normally, resultign in better performance
@@ -285,8 +284,6 @@ public class Hero extends Char implements GetData {
 
 		belongings.restoreFromBundle( bundle );
 	}
-
-
 
 	public void storeInData( Data data ){
 		data.storeHP(HP);
