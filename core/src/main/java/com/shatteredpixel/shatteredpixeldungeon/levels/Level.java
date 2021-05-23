@@ -444,7 +444,7 @@ public abstract class Level implements Bundlable, GetData {
 		data.storeMobs(mobs_clone);
 		data.storeTraps(traps.valueList());
 	}
-
+	
 	public int tunnelTile() {
 		return feeling == Feeling.CHASM ? Terrain.EMPTY_SP : Terrain.EMPTY;
 	}

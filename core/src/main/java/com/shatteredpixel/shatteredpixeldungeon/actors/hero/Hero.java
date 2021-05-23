@@ -294,7 +294,7 @@ public class Hero extends Char implements GetData {
 		data.storeKillMonster(countKillingMonster);
 		data.storeEarnEXP(totalEXP);
 	}
-
+	
 	public static void preview( GamesInProgress.Info info, Bundle bundle ) {
 		info.level = bundle.getInt( LEVEL );
 		info.str = bundle.getInt( STRENGTH );
