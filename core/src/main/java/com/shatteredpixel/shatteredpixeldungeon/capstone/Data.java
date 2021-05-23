@@ -49,6 +49,7 @@ public class Data {
 
     public int armor_armor = (hero_armor.DRMax(level())+hero_armor.DRMin(level()))/2;
     public int armor_strreq = hero_armor.STRReq(level());
+    public int armor_static = hero_armor.armor_static;
     //아이템 사용횟수 리턴 함수
     public int get_artifacts_cnt(){
         return Dungeon.artifacts_cnt;
