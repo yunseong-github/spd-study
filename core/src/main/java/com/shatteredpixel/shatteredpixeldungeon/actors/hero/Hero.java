@@ -188,8 +188,6 @@ public class Hero extends Char implements GetData {
 	private int totalDamage = 0;
 	private int countStep = 0;
 
-	private int totalDamage = 0; // Data에 총 입은 데미지 계산을 위한 변수
-
 	//This list is maintained so that some logic checks can be skipped
 	// for enemies we know we aren't seeing normally, resultign in better performance
 	public ArrayList<Mob> mindVisionEnemies = new ArrayList<>();
@@ -286,8 +284,6 @@ public class Hero extends Char implements GetData {
 		belongings.restoreFromBundle( bundle );
 	}
 
-
-
 	public void storeInData( Data data ){
 		data.storeHP(HP);
 		data.storeHT(HT);
@@ -297,7 +293,7 @@ public class Hero extends Char implements GetData {
 		data.storeKillMonster(countKillingMonster);
 		data.storeEarnEXP(totalEXP);
 	}
-
+	
 	public static void preview( GamesInProgress.Info info, Bundle bundle ) {
 		info.level = bundle.getInt( LEVEL );
 		info.str = bundle.getInt( STRENGTH );
