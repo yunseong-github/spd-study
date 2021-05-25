@@ -69,6 +69,8 @@ abstract public class Weapon extends KindOfWeapon {
 	public float	DLY	= 1f;	// Speed modifier
 	public int      RCH = 1;    // Reach modifier (only applies to melee hits)
 
+
+
 	public enum Augment {
 		SPEED   (0.7f, 0.6667f),
 		DAMAGE  (1.5f, 1.6667f),
@@ -76,6 +78,8 @@ abstract public class Weapon extends KindOfWeapon {
 
 		private float damageFactor;
 		private float delayFactor;
+
+
 
 		Augment(float dmg, float dly){
 			damageFactor = dmg;
@@ -99,7 +103,9 @@ abstract public class Weapon extends KindOfWeapon {
 	
 	public Enchantment enchantment;
 	public boolean curseInfusionBonus = false;
-	
+
+	public int WEAPON_STATIC=1;
+
 	@Override
 	public int proc( Char attacker, Char defender, int damage ) {
 		

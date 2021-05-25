@@ -31,7 +31,9 @@ import com.watabou.utils.Random;
 public class MeleeWeapon extends Weapon {
 	
 	public int tier;
+
 	public int WEAPON_STATIC=1;
+
 	@Override
 	public int min(int lvl) {
 		return  tier +  //base

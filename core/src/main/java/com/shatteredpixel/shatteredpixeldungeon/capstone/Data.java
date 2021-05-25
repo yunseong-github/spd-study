@@ -43,12 +43,12 @@ public class Data {
     public Armor hero_armor=Dungeon.hero.belongings.armor;
 
     // 장착 아이템의 정보보
-    public int weapon_damage = (hero_weapon.max(level())+hero_weapon.min(level()))/2;
-    public int weapon_strreq = hero_weapon.STRReq(level());
-    public int weapon_static = hero_weapon.getWEAPON_STATIC();
+    public int weapon_damage = (hero_weapon.max(hero_weapon.level())+hero_weapon.min(hero_weapon.level()))/2;
+    public int weapon_strreq = hero_weapon.STRReq(hero_weapon.level());
+    public int weapon_static = hero_weapon.WEAPON_STATIC;
 
-    public int armor_armor = (hero_armor.DRMax(level())+hero_armor.DRMin(level()))/2;
-    public int armor_strreq = hero_armor.STRReq(level());
+    public int armor_armor = (hero_armor.DRMax(hero_armor.level())+hero_armor.DRMin(hero_armor.level()))/2;
+    public int armor_strreq = hero_armor.STRReq(hero_armor.level());
     public int armor_static = hero_armor.armor_static;
     //아이템 사용횟수 리턴 함수
     public int get_artifacts_cnt(){
