@@ -161,6 +161,7 @@ public class Dungeon {
 	public static int potions_cnt=0;
 	public static int scrolls_cnt=0;
 	public static int stones_cnt=0;
+	public static int spell_cnt=0;
 
 	public static Hero hero;
 	public static Level level;

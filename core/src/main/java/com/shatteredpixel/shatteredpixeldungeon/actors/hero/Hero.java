@@ -286,8 +286,8 @@ public class Hero extends Char implements GetData {
 	}
 
 	public void storeInData( Data data ){
-		data.storeHP(HP);
-		data.storeHT(HT);
+		//data.storeHP(HP);
+		//data.storeHT(HT);
 		data.storeDamaged(totalDamage);
 		data.storeMoving(countStep);
 		data.storeAttackDamage(totalAttackDamage);
@@ -299,8 +299,8 @@ public class Hero extends Char implements GetData {
 		info.level = bundle.getInt( LEVEL );
 		info.str = bundle.getInt( STRENGTH );
 		info.exp = bundle.getInt( EXPERIENCE );
-		info.hp = bundle.getInt( Char.TAG_HP );
-		info.ht = bundle.getInt( Char.TAG_HT );
+		//info.hp = bundle.getInt( Char.TAG_HP );
+		//info.ht = bundle.getInt( Char.TAG_HT );
 		info.shld = bundle.getInt( Char.TAG_SHLD );
 		info.heroClass = HeroClass.restoreInBundle( bundle );
 		info.subClass = HeroSubClass.restoreInBundle( bundle );
