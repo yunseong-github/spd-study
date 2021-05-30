@@ -21,10 +21,8 @@
 
 package com.shatteredpixel.shatteredpixeldungeon.ui;
 
-import com.shatteredpixel.shatteredpixeldungeon.capstone.GetData;
-import com.shatteredpixel.shatteredpixeldungeon.capstone.Data;
-
 import com.shatteredpixel.shatteredpixeldungeon.Assets;
+import com.shatteredpixel.shatteredpixeldungeon.capstone.Data;
 import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
 import com.shatteredpixel.shatteredpixeldungeon.SPDAction;
 import com.shatteredpixel.shatteredpixeldungeon.Statistics;
@@ -81,9 +79,6 @@ public class StatusPane extends Component {
 	private Toolbar.PickedUpItem pickedUp;
 	
 	private BitmapText version;
-
-	public int Hp=0;
-	public int Ht=0;
 
 	@Override
 	protected void createChildren() {
@@ -210,13 +205,16 @@ public class StatusPane extends Component {
 	@Override
 	public void update() {
 		super.update();
-		
+
 		int health = Dungeon.hero.HP;
 		int shield = Dungeon.hero.shielding();
 		int max = Dungeon.hero.HT;
 
-		Hp=health;
-		Ht=max;
+		Data getData = Data.getInstance();
+		getData.storeHP(health);
+		getData.storeHealing(health);
+		getData.storeDamaged(max);
+
 
 		if (!Dungeon.hero.isAlive()) {
 			avatar.tint(0x000000, 0.5f);
@@ -265,13 +263,6 @@ public class StatusPane extends Component {
 			lastTier = tier;
 			avatar.copy( HeroSprite.avatar( Dungeon.hero.heroClass, tier ) );
 		}
-	}
-
-	public void storeInData( Data data ){
-		data.storeHP(Hp);
-		data.storeHT(Ht);
-		data.storeHealPoint(Hp);
-
 	}
 
 	public void pickup( Item item, int cell) {
