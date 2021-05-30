@@ -1633,6 +1633,7 @@ public class Hero extends Char implements GetData {
 			});
 			
 		}
+		Dungeon.gameEnd();
 	}
 	
 	public static void reallyDie( Object cause ) {

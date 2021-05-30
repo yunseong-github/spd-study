@@ -234,7 +234,7 @@ public class Potion extends Item {
 			GameScene.show(new WndUseItem(null, this) );
 			
 		} else if (action.equals( AC_DRINK )) {
-			Dungeon.potion_cnt=Dungeon.potion_cnt+1;
+			Dungeon.potions_cnt=Dungeon.potions_cnt+1;
 			if (isKnown() && mustThrowPots.contains(getClass())) {
 				
 					GameScene.show(

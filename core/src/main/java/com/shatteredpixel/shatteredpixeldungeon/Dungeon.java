@@ -23,6 +23,7 @@ package com.shatteredpixel.shatteredpixeldungeon;
 
 import com.shatteredpixel.shatteredpixeldungeon.capstone.GetData;
 import com.shatteredpixel.shatteredpixeldungeon.capstone.Data;
+import com.shatteredpixel.shatteredpixeldungeon.capstone.AWSService;
 // capstone data 받아오기 위해 import
 import com.shatteredpixel.shatteredpixeldungeon.actors.Actor;
 import com.shatteredpixel.shatteredpixeldungeon.actors.Char;
@@ -79,7 +80,9 @@ import com.watabou.utils.SparseArray;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
-
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 public class Dungeon {
 
 	//enum of items which have limited spawns, records how many have spawned
@@ -160,6 +163,7 @@ public class Dungeon {
 	public static int food_cnt=0;
 	public static int potions_cnt=0;
 	public static int scrolls_cnt=0;
+	public static int spells_cnt=0;
 	public static int stones_cnt=0;
 
 	public static Hero hero;
@@ -178,7 +182,10 @@ public class Dungeon {
 	public static int version;
 
 	public static long seed;
-	
+
+	// 한 episode에 있는 data를 한 번에 저장하기 위해
+	public static ArrayList<Data> dataEpisode = new ArrayList<>();
+
 	public static void init() {
 
 		version = Game.versionCode;
@@ -234,12 +241,33 @@ public class Dungeon {
 	public static boolean isChallenged( int mask ) {
 		return (challenges & mask) != 0;
 	}
-	
+
+	// 한 게임이 끝나면 이제까지의 데이터를 저장하기 위한 함수
+	public static void gameEnd(){
+		for(int i = 0; i < dataEpisode.size(); i++)
+			dataEpisode.get(i).depth = depth;
+
+		Data.makeCSV(dataEpisode);
+	}
+
 	public static Level newLevel() {
 		if(depth > 0) {
+			ArrayList<Data> datalist = new ArrayList<>();
 			Data data = new Data();
+
 			hero.storeInData(data);
 			level.storeInData(data);
+			data.depth = depth;
+			data.print();
+			datalist.add(data);
+			data.makeCSV(datalist);
+			data.CreateCSV(data.returnlist(), "test2", "D:\\test");
+			AWSService aws = new AWSService();
+//			File csv = new File("C:\\text\\test.csv");
+			File csv2 = new File("C:\\text\\test2.csv");
+//			aws.uploadFile(csv);
+			aws.uploadFile(csv2);
+			dataEpisode.add(data);
 			data.print();
 		}
 		

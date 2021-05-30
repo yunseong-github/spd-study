@@ -5,6 +5,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:4.2.1'
+        classpath "io.spring.gradle:dependency-management-plugin:1.0.9.RELEASE"
     }
 }
 
@@ -30,6 +31,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+        mavenCentral()
     }
 
 }

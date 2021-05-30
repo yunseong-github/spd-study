@@ -15,10 +15,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Iterator;
 
-public class Data {
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 
+public class Data {
+    public int depth;
     public ArrayList<boolean[]> statusAbnormals;
-    public HashSet<Mob> mobs;
+    public ArrayList<Mob> mobs;
     public List<Trap> traps;
 
     // spawn mobs information
@@ -27,6 +31,10 @@ public class Data {
     public ArrayList<Integer> spawnMobsDEF;
     public ArrayList<Integer> spawnMobsEXP;
 
+    public double averageMobsHT;
+    public double averageMobsATT;
+    public double averageMobsDEF;
+    public double averageMobsEXP;
     // player information
     public int hp;
     public int ht;
@@ -72,26 +80,6 @@ public class Data {
 
 
 
-/*
-        무기.max(int 강화수치)
-        무기.min(int 강화수치)
-        해당 무기의 최소/최대 대미지
-
-        무기.STRReq(int 강화수치)
-        해당 무기의 요구 힘 수치량
-
-        무기.getWEAPON_STATIC()
-        해당 무기의 강화효율
-        
-        방어구.DRMin(int 강화수치)
-        방어구.DRMax(int 강화수치)
-        해당 방어구의 최소/최대 방어력
-        
-        방어구.STRReq(int 강화수치)
-        해당 방어구의 요구 힘 수치량 
-     */
-
-
 
     // 변수 저장을 쉽게 하기 위해 임시 저장
     static private int totalDamaged;
@@ -107,13 +95,24 @@ public class Data {
 
         statusAbnormals.add(statusAbnormal);
     }
+    public void storeMobs(HashSet<Mob> mobs_clone){
+        mobs = new ArrayList<>(mobs_clone);
+
+        storeSpawnMobsHT();
+        storeSpawnMobsATT();
+        storeSpawnMobsDEF();
+        storeSpawnMobsEXP();
+    }
+    public void storeTraps(List<Trap> traps){
+        this.traps = traps;
+    }
 
     // 스폰된 mob들의 정보 추출
     public void storeSpawnMobsHT(){
         if(spawnMobsHT == null) spawnMobsHT = new ArrayList<>();
         else spawnMobsHT.clear();
         for(int i = 0; i < mobs.size(); i++)
-            spawnMobsHT.add(mobs.get(i).HT);
+            {spawnMobsHT.add(mobs.get(i).HT);}
         averageMobsHT = arrayListAverage(spawnMobsHT);
     }
 
@@ -121,7 +120,7 @@ public class Data {
         if(spawnMobsATT == null) spawnMobsATT = new ArrayList<>();
         else spawnMobsATT.clear();
         for(int i = 0; i < mobs.size(); i++)
-            spawnMobsATT.add((mobs.get(i).MAX_ATT + mobs.get(i).MIN_ATT) / 2);
+        {spawnMobsATT.add((mobs.get(i).MAX_ATT + mobs.get(i).MIN_ATT) / 2);}
         averageMobsATT = arrayListAverage(spawnMobsATT);
     }
 
@@ -185,5 +184,91 @@ public class Data {
     public void storeEarnEXP(int EXP){
         this.earnEXP = EXP - totalEXP;
         totalEXP = EXP;
+    }
+    public void print(){
+        System.out.println("mobs : " + mobs.size());
+        System.out.println("traps : " + traps.size());
+        System.out.println("hp : " + hp);
+        System.out.println("ht : " + ht);
+        System.out.println("damaged : " + damaged);
+        System.out.println("attackDamage : " + attackDamage);
+        System.out.println("totalAttackDamage : " + totalAttackDamage);
+        System.out.println("killMonster : " + killMonster);
+        System.out.println("moving : " + moving);
+        System.out.println("earnEXP : " + earnEXP);
+
+        System.out.println("spawnMobsATT");
+        for(int i = 0; i < spawnMobsATT.size(); i++){
+            System.out.println(spawnMobsATT.get(i));
+        }
+    }
+
+    public static void makeCSV(ArrayList<Data> data){
+        String filePath = "C:\\Users\\김준형\\Desktop\\dlatl\\temp_data.csv";
+
+        File file = null;
+        BufferedWriter bw = null;
+
+        try{
+            file = new File(filePath);
+            bw = new BufferedWriter((new FileWriter(file, true)));
+
+//            bw.write("HP,HT,damaged,attackDamage,killMonster,moving,earnEXP,averageMobsHT," +
+//                    "averageMobsATT,averageMobsDEF,averageMobsEXP,depth");
+//            bw.write("\r\n");
+
+            for(int i = 0; i < data.size(); i++){
+                Data temp = data.get(i);
+
+                bw.write(temp.hp + "," + temp.ht + "," + temp.damaged + "," + temp.attackDamage + "," +
+                        temp.killMonster + "," + temp.moving + "," + temp.earnEXP + "," + temp.averageMobsHT + "," +
+                        temp.averageMobsATT + "," + temp.averageMobsDEF + "," + temp.averageMobsEXP + "," + temp.weapon_damage + "," + temp.armor_armor + "," + temp.depth);
+                bw.write("\r\n");
+            }
+
+            bw.flush();
+            bw.close();
+        } catch(Exception e){
+        }
+
+    }
+    public ArrayList<Object> returnlist() {
+        ArrayList<Object> list = new ArrayList<>();
+        //Date today = new Date();
+
+        list.add(this.hp);
+        list.add(this.ht);
+        list.add(this.damaged);
+        list.add(this.attackDamage);
+        list.add(this.killMonster);
+        list.add(this.moving);
+        list.add(this.earnEXP);
+        list.add(this.averageMobsHT);
+        list.add(this.averageMobsATT);
+        list.add(this.averageMobsDEF);
+        list.add(this.averageMobsEXP);
+        list.add(this.depth);
+
+        return list;
+    }
+    public int CreateCSV(ArrayList<Object> list, String title, String filepath) {
+
+        int cnt = 0;
+
+        try {
+            BufferedWriter fw = new BufferedWriter(new FileWriter(filepath+"/"+title+".csv", true));
+
+            for(Object dom : list){
+                fw.write(dom+",");
+                cnt++;
+            }
+            fw.newLine();
+            fw.flush();
+            fw.close();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return cnt;
     }
 }
