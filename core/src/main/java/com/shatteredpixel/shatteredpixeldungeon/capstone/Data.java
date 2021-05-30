@@ -21,6 +21,7 @@ import java.io.FileWriter;
 
 public class Data {
     int depth;
+    static Data Data;
     public ArrayList<boolean[]> statusAbnormals;
     public ArrayList<Mob> mobs;
     public List<Trap> traps;
@@ -194,6 +195,14 @@ public class Data {
         this.earnEXP = EXP - totalEXP;
         totalEXP = EXP;
     }
+
+    static public Data getInstance(){
+        if(Data!=null){
+            return Data;
+        }else
+            return new Data();
+    }
+    
     public void print(){
         System.out.println("mobs : " + mobs.size());
         System.out.println("traps : " + traps.size());
