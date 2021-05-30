@@ -40,9 +40,12 @@ public class Data {
     public int ht;
     public int damaged;
     public int attackDamage;
+
     static int preHp=20;
     static int postHp=0;
-    public int healPoint;
+    static int healPoint=0;
+
+    //public int healPoint;
     public int killMonster;
     public int moving;
     public int earnEXP;
@@ -169,7 +172,7 @@ public class Data {
         totalAttackDamage = attackDamage;
     }
 
-    public void storeHealPoint(int postHp) {
+    public static void storeHealing(int postHp) {
         if(preHp<postHp){
             healPoint += (postHp-preHp);
         }
