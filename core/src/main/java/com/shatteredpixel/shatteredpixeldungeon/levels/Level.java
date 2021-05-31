@@ -441,7 +441,7 @@ public abstract class Level implements Bundlable, GetData {
 		data.addStatusAbnormal(flamable);
 		data.addStatusAbnormal(solid);
 		data.addStatusAbnormal(avoid);
-		data.storeMobs(mobs_clone);
+		//data.storeMobs(mobs_clone);
 		data.storeTraps(traps.valueList());
 	}
 	

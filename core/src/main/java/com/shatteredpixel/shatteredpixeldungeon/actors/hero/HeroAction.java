@@ -72,7 +72,8 @@ public class HeroAction {
 			Dungeon.food_cnt=0;
 			Dungeon.potions_cnt=0;
 			Dungeon.scrolls_cnt=0;
-			Dungeon.stones_cnt=0;
+
+			Dungeon.spells_cnt=0;
 			this.dst = stairs;
 		}
 	}

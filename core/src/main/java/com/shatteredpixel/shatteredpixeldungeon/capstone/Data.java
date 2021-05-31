@@ -21,8 +21,9 @@ import java.io.FileWriter;
 
 public class Data {
     public int depth;
+    static Data Data;
     public ArrayList<boolean[]> statusAbnormals;
-    public ArrayList<Mob> mobs;
+    //public ArrayList<Mob> mobs;
     public List<Trap> traps;
 
     // spawn mobs information
@@ -40,7 +41,11 @@ public class Data {
     public int ht;
     public int damaged;
     public int attackDamage;
-    public int healPoint;
+
+    static int preHp=20;
+    static int postHp=0;
+    static int healPoint=0;
+
     public int killMonster;
     public int moving;
     public int earnEXP;
@@ -74,10 +79,16 @@ public class Data {
     public int get_scrolls_cnt(){
         return Dungeon.scrolls_cnt;
     }
-    public int get_stones_cnt(){
-        return Dungeon.stones_cnt;
+    public int get_spells_cnt(){
+        return Dungeon.spells_cnt;
     }
 
+    public int artifacts=get_artifacts_cnt();
+    public int bombs=get_bombs_cnt();
+    public int food=get_food_cnt();
+    public int potions=get_potions_cnt();
+    public int scrolls=get_scrolls_cnt();
+    public int spells=get_spells_cnt();
 
 
 
@@ -95,7 +106,7 @@ public class Data {
 
         statusAbnormals.add(statusAbnormal);
     }
-    public void storeMobs(HashSet<Mob> mobs_clone){
+    /*public void storeMobs(HashSet<Mob> mobs_clone){
         mobs = new ArrayList<>(mobs_clone);
 
         storeSpawnMobsHT();
@@ -103,10 +114,12 @@ public class Data {
         storeSpawnMobsDEF();
         storeSpawnMobsEXP();
     }
+    */
+
     public void storeTraps(List<Trap> traps){
         this.traps = traps;
     }
-
+    /*
     // 스폰된 mob들의 정보 추출
     public void storeSpawnMobsHT(){
         if(spawnMobsHT == null) spawnMobsHT = new ArrayList<>();
@@ -139,7 +152,7 @@ public class Data {
             spawnMobsEXP.add(mobs.get(i).EXP);
         averageMobsEXP = arrayListAverage(spawnMobsEXP);
     }
-
+*/
     private double arrayListAverage(ArrayList<Integer> list) {
         double temp = 0;
         for(int i = 0; i < list.size(); i++)
@@ -167,10 +180,13 @@ public class Data {
         totalAttackDamage = attackDamage;
     }
 
-    //    public void storeHealPoint(int healPoint){
-//        this.healPoint = healPoint;
-//    }
-//
+    public void storeHealing(int postHp){
+        if(preHp<postHp){
+            healPoint += (postHp-preHp);
+        }
+        preHp = postHp;
+    }
+
     public void storeKillMonster(int killMonster){
         this.killMonster = killMonster - totalKillMonster;
         totalKillMonster = killMonster;
@@ -185,8 +201,14 @@ public class Data {
         this.earnEXP = EXP - totalEXP;
         totalEXP = EXP;
     }
+    static public Data getInstance(){
+        if(Data!=null){
+            return Data;
+        }else
+            return new Data();
+    }
     public void print(){
-        System.out.println("mobs : " + mobs.size());
+        //System.out.println("mobs : " + mobs.size());
         System.out.println("traps : " + traps.size());
         System.out.println("hp : " + hp);
         System.out.println("ht : " + ht);
@@ -198,13 +220,13 @@ public class Data {
         System.out.println("earnEXP : " + earnEXP);
 
         System.out.println("spawnMobsATT");
-        for(int i = 0; i < spawnMobsATT.size(); i++){
+        /*for(int i = 0; i < spawnMobsATT.size(); i++){
             System.out.println(spawnMobsATT.get(i));
-        }
+        }*/
     }
 
     public static void makeCSV(ArrayList<Data> data){
-        String filePath = "C:\\Users\\김준형\\Desktop\\dlatl\\temp_data.csv";
+        String filePath = "C:\\Program Files\\temp_data.csv";
 
         File file = null;
         BufferedWriter bw = null;
@@ -220,9 +242,31 @@ public class Data {
             for(int i = 0; i < data.size(); i++){
                 Data temp = data.get(i);
 
-                bw.write(temp.hp + "," + temp.ht + "," + temp.damaged + "," + temp.attackDamage + "," +
-                        temp.killMonster + "," + temp.moving + "," + temp.earnEXP + "," + temp.averageMobsHT + "," +
-                        temp.averageMobsATT + "," + temp.averageMobsDEF + "," + temp.averageMobsEXP + "," + temp.weapon_damage + "," + temp.armor_armor + "," + temp.depth);
+                bw.write(temp.hp + "," +
+                        temp.ht + "," +
+                        temp.damaged + "," +
+                        temp.attackDamage + "," +
+                        temp.killMonster + "," +
+                        temp.moving + "," +
+                        temp.earnEXP + "," +
+                        temp.artifacts + "," +
+                        temp.bombs + "," +
+                        temp.food + "," +
+                        temp.potions + "," +
+                        temp.scrolls + "," +
+                        temp.spells + "," +
+                        healPoint + "," +
+                        /*temp.averageMobsHT + "," +
+                        temp.averageMobsATT + "," +
+                        temp.averageMobsDEF + "," +
+                        temp.averageMobsEXP + "," +*/
+                        temp.weapon_damage + "," +
+                        temp.weapon_static + "," +
+                        temp.weapon_strreq + "," +
+                        temp.armor_armor + "," +
+                        temp.armor_static + "," +
+                        temp.armor_strreq + "," +
+                        temp.depth);
                 bw.write("\r\n");
             }
 
@@ -243,10 +287,10 @@ public class Data {
         list.add(this.killMonster);
         list.add(this.moving);
         list.add(this.earnEXP);
-        list.add(this.averageMobsHT);
+        /*list.add(this.averageMobsHT);
         list.add(this.averageMobsATT);
         list.add(this.averageMobsDEF);
-        list.add(this.averageMobsEXP);
+        list.add(this.averageMobsEXP);*/
         list.add(this.depth);
 
         return list;

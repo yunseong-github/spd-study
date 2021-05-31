@@ -246,8 +246,11 @@ public class Dungeon {
 	public static void gameEnd(){
 		for(int i = 0; i < dataEpisode.size(); i++)
 			dataEpisode.get(i).depth = depth;
-
+		AWSService aws = new AWSService();
 		Data.makeCSV(dataEpisode);
+		File test = new File("C:\\Program Files\\temp_data.csv");
+//			aws.uploadFile(csv);
+		aws.uploadFile(test);
 	}
 
 	public static Level newLevel() {
@@ -260,13 +263,13 @@ public class Dungeon {
 			data.depth = depth;
 			data.print();
 			datalist.add(data);
-			data.makeCSV(datalist);
-			data.CreateCSV(data.returnlist(), "test2", "D:\\test");
-			AWSService aws = new AWSService();
-//			File csv = new File("C:\\text\\test.csv");
+			//data.makeCSV(datalist);
+			//data.CreateCSV(data.returnlist(), "test2", "c:\\text");
+			/*AWSService aws = new AWSService();
+
 			File csv2 = new File("C:\\text\\test2.csv");
 //			aws.uploadFile(csv);
-			aws.uploadFile(csv2);
+			aws.uploadFile(csv2);*/
 			dataEpisode.add(data);
 			data.print();
 		}
