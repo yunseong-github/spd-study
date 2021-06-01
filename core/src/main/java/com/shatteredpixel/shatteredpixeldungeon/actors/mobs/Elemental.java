@@ -51,13 +51,13 @@ import java.util.ArrayList;
 public abstract class Elemental extends Mob {
 
 	{
-		HP = HT = 60;
+		HP = HT = 60*HT_NEW;
 		defenseSkill = 20;
-		MIN_ATT=20;
-		MAX_ATT=25;
-		MIN_DEF=0;
-		MAX_DEF=5;
-		EXP = 10;
+		MIN_ATT=20*ATT_NEW;
+		MAX_ATT=25*ATT_NEW;
+		MIN_DEF=0*DEF_NEW;
+		MAX_DEF=5*DEF_NEW;
+		EXP = 10*EXP_NEW;
 		maxLvl = 20;
 		
 		flying = true;

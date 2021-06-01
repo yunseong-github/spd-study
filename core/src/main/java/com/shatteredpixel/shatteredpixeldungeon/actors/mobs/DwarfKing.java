@@ -68,17 +68,20 @@ public class DwarfKing extends Mob {
 	{
 		spriteClass = KingSprite.class;
 
-		HP = HT = 300;
-		EXP = 40;
+		HP = HT = 300*HT_NEW;
+		EXP = 40*EXP_NEW;
 		defenseSkill = 22;
-
+		MIN_ATT=15*ATT_NEW;
+		MAX_ATT=25*ATT_NEW;
+		MIN_DEF=0*DEF_NEW;
+		MAX_DEF=10*DEF_NEW;
 		properties.add(Property.BOSS);
 		properties.add(Property.UNDEAD);
 	}
 
 	@Override
 	public int damageRoll() {
-		return Random.NormalIntRange( 15, 25 );
+		return Random.NormalIntRange( MIN_ATT, MAX_ATT );
 	}
 
 	@Override
@@ -88,7 +91,7 @@ public class DwarfKing extends Mob {
 
 	@Override
 	public int drRoll() {
-		return Random.NormalIntRange(0, 10);
+		return Random.NormalIntRange(MIN_DEF, MAX_DEF);
 	}
 
 	private int phase = 1;

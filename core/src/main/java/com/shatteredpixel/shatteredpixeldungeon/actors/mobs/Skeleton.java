@@ -39,18 +39,18 @@ public class Skeleton extends Mob {
 	{
 		spriteClass = SkeletonSprite.class;
 		
-		HP = HT = 25;
+		HP = HT = 25*HT_NEW;
 		defenseSkill = 9;
 		
-		EXP = 5;
+		EXP = 5*EXP_NEW;
 		maxLvl = 10;
 
 		loot = Generator.Category.WEAPON;
 		lootChance = 0.1667f; //by default, see rollToDropLoot()
-		MIN_ATT=2;
-		MAX_ATT=10;
+		MIN_ATT=2*ATT_NEW;
+		MAX_ATT=10*ATT_NEW;
 		MIN_DEF=0;
-		MAX_DEF=5;
+		MAX_DEF=5*DEF_NEW;
 		properties.add(Property.UNDEAD);
 		properties.add(Property.INORGANIC);
 	}

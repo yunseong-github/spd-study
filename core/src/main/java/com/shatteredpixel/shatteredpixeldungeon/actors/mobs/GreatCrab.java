@@ -39,11 +39,11 @@ public class GreatCrab extends Crab {
 	{
 		spriteClass = GreatCrabSprite.class;
 
-		HP = HT = 25;
+		HP = HT = 25*HT_NEW;
 		defenseSkill = 0; //see damage()
 		baseSpeed = 1f;
 
-		EXP = 6;
+		EXP = 6*EXP_NEW;
 
 		state = WANDERING;
 

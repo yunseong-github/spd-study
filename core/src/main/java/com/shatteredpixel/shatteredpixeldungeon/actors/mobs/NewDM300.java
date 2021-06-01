@@ -79,10 +79,13 @@ public class NewDM300 extends Mob {
 	{
 		spriteClass = DM300Sprite.class;
 
-		HP = HT = 300;
-		EXP = 30;
+		HP = HT = 300*HT_NEW;
+		EXP = 30*EXP_NEW;
 		defenseSkill = 15;
-
+		MIN_ATT=15*ATT_NEW;
+		MAX_ATT=25*ATT_NEW;
+		MIN_DEF=0;
+		MAX_DEF=10*DEF_NEW;
 		properties.add(Property.BOSS);
 		properties.add(Property.INORGANIC);
 		properties.add(Property.LARGE);
@@ -90,7 +93,7 @@ public class NewDM300 extends Mob {
 
 	@Override
 	public int damageRoll() {
-		return Random.NormalIntRange( 15, 25 );
+		return Random.NormalIntRange( MIN_ATT, MAX_ATT );
 	}
 
 	@Override
@@ -100,7 +103,7 @@ public class NewDM300 extends Mob {
 
 	@Override
 	public int drRoll() {
-		return Random.NormalIntRange(0, 10);
+		return Random.NormalIntRange(MIN_DEF,MAX_DEF);
 	}
 
 	public int pylonsActivated = 0;

@@ -236,6 +236,9 @@ public class Dungeon {
 		Badges.reset();
 		
 		GamesInProgress.selectedClass.initHero( hero );
+
+		AWSService aws = new AWSService();
+		aws.downloadFile();
 	}
 
 	public static boolean isChallenged( int mask ) {

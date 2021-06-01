@@ -36,15 +36,15 @@ public class FetidRat extends Rat {
 	{
 		spriteClass = FetidRatSprite.class;
 
-		HP = HT = 20;
+		HP = HT = 20*HT_NEW;
 		defenseSkill = 5;
 
-		EXP = 4;
+		EXP = 4*EXP_NEW;
 
 		state = WANDERING;
 
 		MIN_DEF=0;
-		MAX_DEF=2;
+		MAX_DEF=2*DEF_NEW;
 		properties.add(Property.MINIBOSS);
 		properties.add(Property.DEMONIC);
 	}

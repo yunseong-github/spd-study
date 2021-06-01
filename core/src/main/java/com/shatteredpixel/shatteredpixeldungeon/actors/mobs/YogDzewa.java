@@ -66,9 +66,9 @@ public class YogDzewa extends Mob {
 	{
 		spriteClass = YogSprite.class;
 
-		HP = HT = 1000;
+		HP = HT = 1000*HT_NEW;
 
-		EXP = 50;
+		EXP = 50*EXP_NEW_NEW;
 
 		//so that allies can attack it. States are never actually used.
 		state = HUNTING;
@@ -498,10 +498,13 @@ public class YogDzewa extends Mob {
 		{
 			spriteClass = LarvaSprite.class;
 
-			HP = HT = 20;
+			HP = HT = 20*HT_NEW;
 			defenseSkill = 12;
 			viewDistance = Light.DISTANCE;
-
+			MIN_ATT=15*ATT_NEW;
+			MAX_ATT=25*ATT_NEW;
+			MIN_DEF=0;
+			MAX_DEF=4*DEF_NEW;
 			EXP = 5;
 			maxLvl = -2;
 
@@ -515,12 +518,12 @@ public class YogDzewa extends Mob {
 
 		@Override
 		public int damageRoll() {
-			return Random.NormalIntRange( 15, 25 );
+			return Random.NormalIntRange( MIN_ATT, MAX_ATT );
 		}
 
 		@Override
 		public int drRoll() {
-			return Random.NormalIntRange(0, 4);
+			return Random.NormalIntRange(MIN_DEF, MAX_DEF);
 		}
 
 	}

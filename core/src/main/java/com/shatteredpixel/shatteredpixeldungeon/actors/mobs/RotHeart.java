@@ -41,15 +41,15 @@ public class RotHeart extends Mob {
 	{
 		spriteClass = RotHeartSprite.class;
 
-		HP = HT = 80;
+		HP = HT = 80*HT_NEW;
 		defenseSkill = 0;
 
-		EXP = 4;
+		EXP = 4*EXP_NEW;
 
 		state = PASSIVE;
 
 		MIN_DEF=0;
-		MAX_DEF=5;
+		MAX_DEF=5*DEF_NEW;
 		properties.add(Property.IMMOVABLE);
 		properties.add(Property.MINIBOSS);
 	}

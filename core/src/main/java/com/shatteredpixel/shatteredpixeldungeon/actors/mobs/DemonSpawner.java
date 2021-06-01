@@ -46,10 +46,10 @@ public class DemonSpawner extends Mob {
 	{
 		spriteClass = SpawnerSprite.class;
 
-		HP = HT = 120;
+		HP = HT = 120*HT_NEW;
 		defenseSkill = 0;
 
-		EXP = 25;
+		EXP = 25*EXP_NEW;
 		maxLvl = 29;
 
 		state = PASSIVE;
@@ -57,7 +57,7 @@ public class DemonSpawner extends Mob {
 		loot = PotionOfHealing.class;
 		lootChance = 1f;
 		MIN_DEF=0;
-		MAX_DEF=12;
+		MAX_DEF=12*DEF_NEW;
 		properties.add(Property.IMMOVABLE);
 		properties.add(Property.MINIBOSS);
 		properties.add(Property.DEMONIC);

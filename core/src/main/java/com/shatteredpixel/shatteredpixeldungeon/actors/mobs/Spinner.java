@@ -41,18 +41,18 @@ public class Spinner extends Mob {
 	{
 		spriteClass = SpinnerSprite.class;
 
-		HP = HT = 50;
+		HP = HT = 50*HT_NEW;
 		defenseSkill = 17;
 
-		EXP = 9;
+		EXP = 9*EXP_NEW;
 		maxLvl = 17;
 
 		loot = new MysteryMeat();
 		lootChance = 0.125f;
-		MIN_ATT=10;
-		MAX_ATT=20;
+		MIN_ATT=10*ATT_NEW;
+		MAX_ATT=20*ATT_NEW;
 		MIN_DEF=0;
-		MAX_DEF=6;
+		MAX_DEF=6*DEF_NEW;
 		FLEEING = new Fleeing();
 	}
 

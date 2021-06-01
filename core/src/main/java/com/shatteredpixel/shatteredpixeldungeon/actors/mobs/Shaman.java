@@ -41,15 +41,15 @@ import com.watabou.utils.Random;
 public abstract class Shaman extends Mob {
 	
 	{
-		HP = HT = 35;
+		HP = HT = 35*HT_NEW;
 		defenseSkill = 15;
 		
-		EXP = 8;
+		EXP = 8*EXP_NEW;
 		maxLvl = 16;
-		MIN_ATT=5;
-		MAX_ATT=10;
+		MIN_ATT=5*ATT_NEW;
+		MAX_ATT=10*ATT_NEW;
 		MIN_DEF=0;
-		MAX_DEF=6;
+		MAX_DEF=6*DEF_NEW;
 		loot = Generator.Category.WAND;
 		lootChance = 0.03f; //initially, see rollToDropLoot
 	}

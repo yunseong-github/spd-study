@@ -101,6 +101,11 @@ public abstract class Mob extends Char {
 	
 	protected int defenseSkill = 0;
 
+	public int HT_NEW=1;
+	public int ATT_NEW=1;
+	public int DEF_NEW=1;
+	public int EXP_NEW=1;
+
 	public int MAX_ATT = 0;
 	public int MIN_ATT = 0;
 	public int MAX_DEF = 0;

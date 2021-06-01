@@ -41,7 +41,7 @@ public class DM100 extends Mob implements Callback {
 	{
 		spriteClass = DM100Sprite.class;
 		
-		HP = HT = 20;
+		HP = HT = 20*HT_NEW;
 		defenseSkill = 8;
 		
 		EXP = 6;
@@ -49,10 +49,10 @@ public class DM100 extends Mob implements Callback {
 		
 		loot = Generator.Category.SCROLL;
 		lootChance = 0.25f;
-		MIN_ATT=2;
-		MAX_ATT=8;
+		MIN_ATT=2*ATT_NEW;
+		MAX_ATT=8*ATT_NEW;
 		MIN_DEF=0;
-		MAX_DEF=4;
+		MAX_DEF=4*DEF_NEW;
 		properties.add(Property.ELECTRIC);
 		properties.add(Property.INORGANIC);
 	}

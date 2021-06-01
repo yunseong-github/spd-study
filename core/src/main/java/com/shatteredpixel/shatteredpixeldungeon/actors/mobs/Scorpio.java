@@ -41,19 +41,19 @@ public class Scorpio extends Mob {
 	{
 		spriteClass = ScorpioSprite.class;
 		
-		HP = HT = 110;
+		HP = HT = 110*HT_NEW;
 		defenseSkill = 24;
 		viewDistance = Light.DISTANCE;
 		
-		EXP = 14;
+		EXP = 14*EXP_NEW;
 		maxLvl = 27;
 		
 		loot = Generator.Category.POTION;
 		lootChance = 0.5f;
-		MIN_ATT=30;
-		MAX_ATT=48;
+		MIN_ATT=30*ATT_NEW;
+		MAX_ATT=48*ATT_NEW;
 		MIN_DEF=0;
-		MAX_DEF=16;
+		MAX_DEF=16*DEF_NEW;
 		properties.add(Property.DEMONIC);
 	}
 	

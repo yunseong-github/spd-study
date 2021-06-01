@@ -43,10 +43,10 @@ public class Ghoul extends Mob {
 	{
 		spriteClass = GhoulSprite.class;
 		
-		HP = HT = 45;
+		HP = HT = 45*HT_NEW;
 		defenseSkill = 20;
 		
-		EXP = 5;
+		EXP = 5*EXP_NEW;
 		maxLvl = 20;
 		
 		SLEEPING = new Sleeping();
@@ -55,10 +55,10 @@ public class Ghoul extends Mob {
 
 		loot = Gold.class;
 		lootChance = 0.2f;
-		MIN_ATT=16;
-		MAX_ATT=22;
+		MIN_ATT=16*ATT_NEW;
+		MAX_ATT=22*ATT_NEW;
 		MIN_DEF=0;
-		MAX_DEF=4;
+		MAX_DEF=4*DEF_NEW;
 		properties.add(Property.UNDEAD);
 	}
 

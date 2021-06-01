@@ -46,16 +46,16 @@ public class Eye extends Mob {
 	{
 		spriteClass = EyeSprite.class;
 		
-		HP = HT = 100;
+		HP = HT = 100*HT_NEW;
 		defenseSkill = 20;
 		viewDistance = Light.DISTANCE;
 		
-		EXP = 13;
+		EXP = 13*EXP_NEW;
 		maxLvl = 26;
-		MIN_ATT=20;
-		MAX_ATT=30;
+		MIN_ATT=20*ATT_NEW;
+		MAX_ATT=30*ATT_NEW;
 		MIN_DEF=0;
-		MAX_DEF=10;
+		MAX_DEF=10*ATT_NEW;
 		flying = true;
 
 		HUNTING = new Hunting();

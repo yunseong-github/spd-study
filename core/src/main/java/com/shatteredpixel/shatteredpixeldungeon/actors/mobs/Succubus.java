@@ -53,19 +53,19 @@ public class Succubus extends Mob {
 	{
 		spriteClass = SuccubusSprite.class;
 		
-		HP = HT = 80;
+		HP = HT = 80*HT_NEW;
 		defenseSkill = 25;
 		viewDistance = Light.DISTANCE;
 		
-		EXP = 12;
+		EXP = 12*EXP_NEW;
 		maxLvl = 25;
 		
 		loot = Generator.Category.SCROLL;
 		lootChance = 0.33f;
-		MIN_ATT=25;
-		MAX_ATT=30;
+		MIN_ATT=25*ATT_NEW;
+		MAX_ATT=30*ATT_NEW;
 		MIN_DEF=0;
-		MAX_DEF=10;
+		MAX_DEF=10*DEF_NEW;
 		properties.add(Property.DEMONIC);
 	}
 	

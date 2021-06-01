@@ -29,8 +29,8 @@ public class Senior extends Monk {
 
 	{
 		spriteClass = SeniorSprite.class;
-		MIN_ATT=16;
-		MAX_ATT=25;
+		MIN_ATT=16*ATT_NEW;
+		MAX_ATT=25*ATT_NEW;
 
 		loot = new Pasty();
 		lootChance = 1f;

@@ -53,7 +53,7 @@ public class Pylon extends Mob {
 	{
 		spriteClass = PylonSprite.class;
 
-		HP = HT = 50;
+		HP = HT = 50*HT_NEW;
 
 		maxLvl = -2;
 

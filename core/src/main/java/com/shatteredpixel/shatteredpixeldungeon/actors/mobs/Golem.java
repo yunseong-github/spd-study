@@ -40,10 +40,10 @@ public class Golem extends Mob {
 	{
 		spriteClass = GolemSprite.class;
 		
-		HP = HT = 120;
+		HP = HT = 120*HT_NEW;
 		defenseSkill = 15;
 		
-		EXP = 12;
+		EXP = 12*EXP_NEW;
 		maxLvl = 22;
 
 		loot = Random.oneOf(Generator.Category.WEAPON, Generator.Category.ARMOR);
@@ -54,10 +54,10 @@ public class Golem extends Mob {
 
 		WANDERING = new Wandering();
 		HUNTING = new Hunting();
-		MIN_ATT=25;
-		MAX_ATT=30;
+		MIN_ATT=25*ATT_NEW;
+		MAX_ATT=30*ATT_NEW;
 		MIN_DEF=0;
-		MAX_DEF=12;
+		MAX_DEF=12*DEF_NEW;
 	}
 
 	@Override

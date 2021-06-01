@@ -67,9 +67,9 @@ public class Yog extends Mob {
 	{
 		spriteClass = YogSprite.class;
 		
-		HP = HT = 300;
+		HP = HT = 300*HT_NEW;
 		
-		EXP = 50;
+		EXP = 50*EXP_NEW;
 		
 		state = PASSIVE;
 
@@ -214,9 +214,12 @@ public class Yog extends Mob {
 		{
 			spriteClass = FistSprite.Rotting.class;
 			
-			HP = HT = 300;
+			HP = HT = 300*HT_NEW;
 			defenseSkill = 25;
-			
+			MIN_ATT=20*ATT_NEW;
+			MAX_ATT=50*ATT_NEW;
+			MIN_DEF=0;
+			MAX_DEF=15*DEF_NEW;
 			EXP = 0;
 			
 			state = WANDERING;
@@ -286,9 +289,12 @@ public class Yog extends Mob {
 		{
 			spriteClass = FistSprite.Burning.class;
 			
-			HP = HT = 200;
+			HP = HT = 200*HT_NEW;
 			defenseSkill = 25;
-			
+			MIN_ATT=26*ATT_NEW;
+			MAX_ATT=32*ATT_NEW;
+			MIN_DEF=0;
+			MAX_DEF=15*DEF_NEW;
 			EXP = 0;
 			
 			state = WANDERING;
@@ -305,12 +311,12 @@ public class Yog extends Mob {
 		
 		@Override
 		public int damageRoll() {
-			return Random.NormalIntRange( 26, 32 );
+			return Random.NormalIntRange(	MIN_ATT, MAX_ATT );
 		}
 		
 		@Override
 		public int drRoll() {
-			return Random.NormalIntRange(0, 15);
+			return Random.NormalIntRange(MIN_DEF,MAX_DEF);
 		}
 		
 		@Override
@@ -393,9 +399,12 @@ public class Yog extends Mob {
 		{
 			spriteClass = LarvaSprite.class;
 			
-			HP = HT = 25;
+			HP = HT = 25*HT_NEW;
 			defenseSkill = 20;
-			
+			MIN_ATT=22*ATT_NEW;
+			MAX_ATT=30*ATT_NEW;
+			MIN_DEF=0;
+			MAX_DEF=8*DEF_NEW;
 			EXP = 0;
 			maxLvl = -2;
 			
@@ -411,12 +420,12 @@ public class Yog extends Mob {
 		
 		@Override
 		public int damageRoll() {
-			return Random.NormalIntRange( 22, 30 );
+		return Random.NormalIntRange( MIN_ATT	, MAX_ATT );
 		}
 		
 		@Override
 		public int drRoll() {
-			return Random.NormalIntRange(0, 8);
+			return Random.NormalIntRange(MIN_DEF, MAX_DEF);
 		}
 
 	}

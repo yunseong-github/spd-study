@@ -45,18 +45,18 @@ public class Warlock extends Mob implements Callback {
 	{
 		spriteClass = WarlockSprite.class;
 		
-		HP = HT = 70;
+		HP = HT = 70*HT_NEW;
 		defenseSkill = 18;
 		
-		EXP = 11;
+		EXP = 11*EXP_NEW;
 		maxLvl = 21;
 		
 		loot = Generator.Category.POTION;
 		lootChance = 0.5f;
-		MIN_ATT=12;
-		MAX_ATT=18;
+		MIN_ATT=12*ATT_NEW;
+		MAX_ATT=18*ATT_NEW;
 		MIN_DEF=0;
-		MAX_DEF=8;
+		MAX_DEF=8*DEF_NEW;
 		properties.add(Property.UNDEAD);
 	}
 	

@@ -43,10 +43,10 @@ public class GnollTrickster extends Gnoll {
 	{
 		spriteClass = GnollTricksterSprite.class;
 
-		HP = HT = 20;
+		HP = HT = 20*HT_NEW;
 		defenseSkill = 5;
 
-		EXP = 5;
+		EXP = 5*EXP_NEW;
 
 		state = WANDERING;
 

@@ -35,13 +35,13 @@ public class Slime extends Mob {
 	{
 		spriteClass = SlimeSprite.class;
 		
-		HP = HT = 20;
+		HP = HT = 20*HT_NEW;
 		defenseSkill = 5;
 		
-		EXP = 4;
+		EXP = 4*EXP_NEW;
 		maxLvl = 9;
-		MIN_ATT=2;
-		MAX_ATT=5;
+		MIN_ATT=2*ATT_NEW;
+		MAX_ATT=5*ATT_NEW;
 		MIN_DEF=0;
 		MAX_DEF=0;
 		lootChance = 0.2f; //by default, see rollToDropLoot()

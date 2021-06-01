@@ -36,19 +36,19 @@ public class RotLasher extends Mob {
 	{
 		spriteClass = RotLasherSprite.class;
 
-		HP = HT = 40;
+		HP = HT = 40*HT_NEW;
 		defenseSkill = 0;
 
-		EXP = 1;
+		EXP = 1*EXP_NEW;
 
 		loot = Generator.Category.SEED;
 		lootChance = 1f;
 
 		state = WANDERING = new Waiting();
-		MIN_ATT=8;
-		MAX_ATT=15;
+		MIN_ATT=8*ATT_NEW;
+		MAX_ATT=15*ATT_NEW;
 		MIN_DEF=0;
-		MAX_DEF=8;
+		MAX_DEF=8*DEF_NEW;
 		properties.add(Property.IMMOVABLE);
 		properties.add(Property.MINIBOSS);
 	}

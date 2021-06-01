@@ -44,15 +44,15 @@ public class Swarm extends Mob {
 	{
 		spriteClass = SwarmSprite.class;
 		
-		HP = HT = 50;
+		HP = HT = 50*HT_NEW;
 		defenseSkill = 5;
 
-		EXP = 3;
+		EXP = 3*EXP_NEW;
 		maxLvl = 9;
 		
 		flying = true;
-		MIN_ATT=1;
-		MAX_ATT=4;
+		MIN_ATT=1*ATT_NEW;
+		MAX_ATT=4*ATT_NEW;
 		MIN_DEF=0;
 		MAX_DEF=0;
 		loot = new PotionOfHealing();

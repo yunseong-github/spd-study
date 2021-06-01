@@ -47,20 +47,20 @@ public class Guard extends Mob {
 	{
 		spriteClass = GuardSprite.class;
 
-		HP = HT = 40;
+		HP = HT = 40*HT_NEW;
 		defenseSkill = 10;
 
-		EXP = 7;
+		EXP = 7*EXP_NEW;
 		maxLvl = 14;
 
 		loot = Generator.Category.ARMOR;
 		lootChance = 0.2f; //by default, see rollToDropLoot()
 
 		properties.add(Property.UNDEAD);
-		MIN_ATT=4;
-		MAX_ATT=12;
+		MIN_ATT=4*ATT_NEW;
+		MAX_ATT=12*ATT_NEW;
 		MIN_DEF=0;
-		MAX_DEF=7;
+		MAX_DEF=7*DEF_NEW;
 		HUNTING = new Hunting();
 	}
 

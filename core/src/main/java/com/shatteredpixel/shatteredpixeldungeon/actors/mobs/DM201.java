@@ -36,9 +36,9 @@ public class DM201 extends DM200 {
 	{
 		spriteClass = DM201Sprite.class;
 
-		HP = HT = 120;
-		MIN_ATT=15;
-		MAX_ATT=25;
+		HP = HT = 120*HT_NEW;
+		MIN_ATT=15*ATT_NEW;
+		MAX_ATT=25*ATT_NEW;
 
 		properties.add(Property.IMMOVABLE);
 

@@ -55,15 +55,18 @@ import com.watabou.utils.Random;
 public abstract class YogFist extends Mob {
 
 	{
-		HP = HT = 300;
+		HP = HT = 300*HT_NEW;
 		defenseSkill = 20;
 
 		viewDistance = Light.DISTANCE;
 
 		//for doomed resistance
-		EXP = 25;
+		EXP = 25*EXP_NEW;
 		maxLvl = -2;
-
+		MIN_ATT=18*ATT_NEW;
+		MAX_ATT=36*ATT_NEW;
+		MIN_DEF=0;
+		MAX_DEF=15*DEF_NEW;
 		state = HUNTING;
 
 		properties.add(Property.BOSS);
@@ -142,12 +145,12 @@ public abstract class YogFist extends Mob {
 
 	@Override
 	public int damageRoll() {
-		return Random.NormalIntRange( 18, 36 );
+		return Random.NormalIntRange( MIN_ATT, MAX_ATT );
 	}
 
 	@Override
 	public int drRoll() {
-		return Random.NormalIntRange(0, 15);
+		return Random.NormalIntRange(MIN_DEF, MAX_DEF);
 	}
 
 	@Override
@@ -396,14 +399,15 @@ public abstract class YogFist extends Mob {
 
 		{
 			spriteClass = FistSprite.Rusted.class;
-
+			MIN_ATT=22*ATT_NEW;
+			MAX_ATT=44*ATT_NEW;
 			properties.add(Property.LARGE);
 			properties.add(Property.INORGANIC);
 		}
 
 		@Override
 		public int damageRoll() {
-			return Random.NormalIntRange( 22, 44 );
+			return Random.NormalIntRange( MIN_ATT, MAX_ATT );
 		}
 
 		@Override

@@ -39,18 +39,18 @@ public class Monk extends Mob {
 	{
 		spriteClass = MonkSprite.class;
 		
-		HP = HT = 70;
+		HP = HT = 70*HT_NEW;
 		defenseSkill = 30;
 		
-		EXP = 11;
+		EXP = 11*EXP_NEW;
 		maxLvl = 21;
 		
 		loot = new Food();
 		lootChance = 0.083f;
-		MIN_ATT=12;
-		MAX_ATT=25;
+		MIN_ATT=12*ATT_NEW;
+		MAX_ATT=25*ATT_NEW;
 		MIN_DEF=0;
-		MAX_DEF=2;
+		MAX_DEF=2*DEF_NEW;
 		properties.add(Property.UNDEAD);
 	}
 	

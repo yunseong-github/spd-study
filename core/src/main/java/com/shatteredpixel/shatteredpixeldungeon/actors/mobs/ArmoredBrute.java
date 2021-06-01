@@ -40,8 +40,8 @@ public class ArmoredBrute extends Brute {
 		//see rollToDropLoot
 		loot = Generator.Category.ARMOR;
 		lootChance = 1f;
-		MIN_DEF=6;
-		MAX_DEF=10;
+		MIN_DEF=6*DEF_NEW;
+		MAX_DEF=10*DEF_NEW;
 	}
 
 

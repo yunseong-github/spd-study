@@ -46,7 +46,7 @@ public class Necromancer extends Mob {
 	{
 		spriteClass = NecromancerSprite.class;
 		
-		HP = HT = 40;
+		HP = HT = 40*HT_NEW;
 		defenseSkill = 14;
 		
 		EXP = 7;
@@ -58,7 +58,7 @@ public class Necromancer extends Mob {
 		properties.add(Property.UNDEAD);
 
 		MIN_DEF=0;
-		MAX_DEF=5;
+		MAX_DEF=5*DEF_NEW;
 		HUNTING = new Hunting();
 	}
 	
@@ -347,7 +347,7 @@ public class Necromancer extends Mob {
 			maxLvl = -5;
 			
 			//20/25 health to start
-			HP = 20;
+			HP = 20*HT_NEW;
 		}
 
 		@Override

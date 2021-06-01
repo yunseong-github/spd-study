@@ -46,18 +46,18 @@ public class Thief extends Mob {
 	{
 		spriteClass = ThiefSprite.class;
 		
-		HP = HT = 20;
+		HP = HT = 20*HT_NEW;
 		defenseSkill = 12;
 		
-		EXP = 5;
+		EXP = 5*EXP_NEW;
 		maxLvl = 11;
 
 		loot = Random.oneOf(Generator.Category.RING, Generator.Category.ARTIFACT);
 		lootChance = 0.03f; //initially, see rollToDropLoot
-		MIN_ATT=1;
-		MAX_ATT=10;
+		MIN_ATT=1*ATT_NEW;
+		MAX_ATT=10*ATT_NEW;
 		MIN_DEF=0;
-		MAX_DEF=3;
+		MAX_DEF=3*DEF_NEW;
 		WANDERING = new Wandering();
 		FLEEING = new Fleeing();
 

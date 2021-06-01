@@ -38,15 +38,15 @@ public class DM200 extends Mob {
 	{
 		spriteClass = DM200Sprite.class;
 
-		HP = HT = 80;
+		HP = HT = 80*HT_NEW;
 		defenseSkill = 12;
 
-		EXP = 9;
+		EXP = 9*EXP_NEW;
 		maxLvl = 17;
-		MIN_ATT=10;
-		MAX_ATT=25;
-		MIN_DEF=0;
-		MAX_DEF=8;
+		MIN_ATT=10*ATT_NEW;
+		MAX_ATT=25*ATT_NEW;
+		MIN_DEF=0*DEF_NEW;
+		MAX_DEF=8*DEF_NEW;
 		loot = Random.oneOf(Generator.Category.WEAPON, Generator.Category.ARMOR);
 		lootChance = 0.125f; //initially, see rollToDropLoot
 

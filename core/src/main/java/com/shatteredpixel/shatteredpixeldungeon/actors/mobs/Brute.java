@@ -41,15 +41,15 @@ public class Brute extends Mob {
 		spriteClass = BruteSprite.class;
 
 		
-		HP = HT = 40;
+		HP = HT = 40 * HT_NEW;
 		defenseSkill = 15;
 		
-		EXP = 8;
+		EXP = 8 * EXP_NEW;
 		maxLvl = 16;
-		MIN_ATT=5;
-		MAX_ATT=25;
+		MIN_ATT=5 * ATT_NEW;
+		MAX_ATT=25 * ATT_NEW;
 		MIN_DEF=0;
-		MAX_DEF=8;
+		MAX_DEF=8 * DEF_NEW;
 		loot = Gold.class;
 		lootChance = 0.5f;
 	}

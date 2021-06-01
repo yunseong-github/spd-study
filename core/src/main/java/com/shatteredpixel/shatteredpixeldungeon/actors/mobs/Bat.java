@@ -34,16 +34,16 @@ public class Bat extends Mob {
 	{
 		spriteClass = BatSprite.class;
 		
-		HP = HT = 30;
+		HP = HT = 30*HT_NEW;
 		defenseSkill = 15;
 		baseSpeed = 2f;
 		
-		EXP = 7;
+		EXP = 7*EXP_NEW;
 		maxLvl = 15;
-		MIN_ATT=5;
-		MAX_ATT=18;
+		MIN_ATT=5*ATT_NEW;
+		MAX_ATT=18*ATT_NEW;
 		MIN_DEF=0;
-		MAX_DEF=4;
+		MAX_DEF=4*DEF_NEW;
 		flying = true;
 		
 		loot = new PotionOfHealing();

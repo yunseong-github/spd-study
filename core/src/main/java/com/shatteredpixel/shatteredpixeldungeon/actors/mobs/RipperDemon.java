@@ -46,11 +46,11 @@ public class RipperDemon extends Mob {
 	{
 		spriteClass = RipperSprite.class;
 
-		HP = HT = 60;
+		HP = HT = 60*HT_NEW;
 		defenseSkill = 22;
 		viewDistance = Light.DISTANCE;
 
-		EXP = 9; //for corrupting
+		EXP = 9*EXP_NEW; //for corrupting
 		maxLvl = -2;
 
 		HUNTING = new Hunting();

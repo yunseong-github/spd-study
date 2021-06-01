@@ -46,8 +46,8 @@ import com.watabou.utils.Random;
 public class Goo extends Mob {
 
 	{
-		HP = HT = 100;
-		EXP = 10;
+		HP = HT = 100*HT_NEW;
+		EXP = 10*EXP_NEW;
 		defenseSkill = 8;
 		spriteClass = GooSprite.class;
 
@@ -60,8 +60,8 @@ public class Goo extends Mob {
 
 	@Override
 	public int damageRoll() {
-		int min = 1;
-		int max = (HP*2 <= HT) ? 12 : 8;
+		int min = 1*ATT_NEW;
+		int max = (HP*2 <= HT) ? 12*ATT_NEW : 8*ATT_NEW;
 		if (pumpedUp > 0) {
 			pumpedUp = 0;
 			return Random.NormalIntRange( min*3, max*3 );
@@ -85,7 +85,7 @@ public class Goo extends Mob {
 
 	@Override
 	public int drRoll() {
-		return Random.NormalIntRange(0, 2);
+		return Random.NormalIntRange(0, 2*DEF_NEW);
 	}
 
 	@Override
