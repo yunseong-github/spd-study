@@ -91,6 +91,7 @@ public class Data {
     public int spells=get_spells_cnt();
 
 
+    public int tmp_damage;
 
     // 변수 저장을 쉽게 하기 위해 임시 저장
     static private int totalDamaged=0;
@@ -98,7 +99,7 @@ public class Data {
     static private int totalKillMonster;
     static private int totalMoving;
     static private int totalEXP;
-    
+    public int sum_damage=0;
     // level.java 편집
     // flamable, solid, avoid
     public void addStatusAbnormal(boolean[] statusAbnormal){
@@ -172,6 +173,7 @@ public class Data {
 
     public void storeDamaged(int damaged){
         this.damaged = damaged - totalDamaged;
+
         totalDamaged = damaged;
     }
 
@@ -212,7 +214,7 @@ public class Data {
         System.out.println("traps : " + traps.size());
         System.out.println("hp : " + hp);
         System.out.println("ht : " + ht);
-        System.out.println("damaged : " + damaged);
+        System.out.println("damaged : " + tmp_damage);
         System.out.println("attackDamage : " + attackDamage);
         System.out.println("totalAttackDamage : " + totalAttackDamage);
         System.out.println("killMonster : " + killMonster);
@@ -224,7 +226,9 @@ public class Data {
             System.out.println(spawnMobsATT.get(i));
         }*/
     }
-
+    public void ttdmg(){
+        System.out.println("ttdamaged : " + totalDamaged);
+    }
     public static void makeCSV(ArrayList<Data> data){
         String filePath = "C:\\spd\\temp_data.csv";
 
@@ -244,7 +248,7 @@ public class Data {
 
                 bw.write(temp.hp + "," +
                         temp.ht + "," +
-                        temp.damaged + "," +
+                        temp.tmp_damage + "," +
                         temp.attackDamage + "," +
                         temp.killMonster + "," +
                         temp.moving + "," +

@@ -264,7 +264,10 @@ public class Dungeon {
 			hero.storeInData(data);
 			level.storeInData(data);
 			data.depth = depth;
-			data.print();
+			data.tmp_damage=hero.totalDamage;
+			hero.totalDamage=0;
+			data.sum_damage+= data.tmp_damage;
+			//data.print();
 			datalist.add(data);
 			//data.makeCSV(datalist);
 			//data.CreateCSV(data.returnlist(), "test2", "c:\\text");
@@ -274,7 +277,8 @@ public class Dungeon {
 //			aws.uploadFile(csv);
 			aws.uploadFile(csv2);*/
 			dataEpisode.add(data);
-			data.print();
+			data.ttdmg();
+			//data.print();
 		}
 		
 		Dungeon.level = null;

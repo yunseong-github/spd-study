@@ -186,7 +186,7 @@ public class Hero extends Char implements GetData {
 	private ArrayList<Mob> visibleEnemies;
 
 	// Data에 총 입은 데미지 계산을 위한 변수
-	private int totalDamage = 0;
+	public int totalDamage = 0;
 	private int countStep = 0;
 
 	//This list is maintained so that some logic checks can be skipped
@@ -288,7 +288,8 @@ public class Hero extends Char implements GetData {
 	public void storeInData( Data data ){
 		data.storeHP(HP);
 		data.storeHT(HT);
-		data.storeDamaged(totalDamage);
+		data.tmp_damage=totalDamage;
+		//data.storeDamaged(totalDamage);
 		data.storeMoving(countStep);
 		data.storeAttackDamage(totalAttackDamage);
 		data.storeKillMonster(countKillingMonster);
@@ -1196,7 +1197,7 @@ public class Hero extends Char implements GetData {
 		int postHP = HP + shielding();
 		int effectiveDamage = preHP - postHP;
 		totalDamage += effectiveDamage; // 총 데미지 계산
-
+		System.out.println("dmg : " + totalDamage);
 		//flash red when hit for serious damage.
 		float percentDMG = effectiveDamage / (float)preHP; //percent of current HP that was taken
 		float percentHP = 1 - ((HT - postHP) / (float)HT); //percent health after damage was taken
