@@ -62,7 +62,7 @@ public class King extends Mob {
 		spriteClass = KingSprite.class;
 		
 		HP = HT = 300*HT_NEW;
-		EXP = 40*EXP_NEW_NEW;
+		EXP = 40*EXP_NEW;
 		defenseSkill = 25;
 		
 		Undead.count = 0;

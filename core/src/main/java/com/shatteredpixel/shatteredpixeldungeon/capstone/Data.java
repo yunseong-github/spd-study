@@ -93,7 +93,7 @@ public class Data {
 
 
     // 변수 저장을 쉽게 하기 위해 임시 저장
-    static private int totalDamaged;
+    static private int totalDamaged=0;
     static private int totalAttackDamage;
     static private int totalKillMonster;
     static private int totalMoving;
@@ -226,7 +226,7 @@ public class Data {
     }
 
     public static void makeCSV(ArrayList<Data> data){
-        String filePath = "C:\\Program Files\\temp_data.csv";
+        String filePath = "C:\\spd\\temp_data.csv";
 
         File file = null;
         BufferedWriter bw = null;

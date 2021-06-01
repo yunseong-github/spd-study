@@ -68,7 +68,7 @@ public class YogDzewa extends Mob {
 
 		HP = HT = 1000*HT_NEW;
 
-		EXP = 50*EXP_NEW_NEW;
+		EXP = 50*EXP_NEW;
 
 		//so that allies can attack it. States are never actually used.
 		state = HUNTING;

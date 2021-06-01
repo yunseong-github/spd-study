@@ -22,7 +22,6 @@
 package com.shatteredpixel.shatteredpixeldungeon.actors.hero;
 
 import com.shatteredpixel.shatteredpixeldungeon.actors.Char;
-import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
 
 public class HeroAction {
 	
@@ -67,13 +66,13 @@ public class HeroAction {
 	
 	public static class Descend extends HeroAction {
 		public Descend( int stairs ) {
-			Dungeon.artifacts_cnt=0;
+			/*Dungeon.artifacts_cnt=0;
 			Dungeon.bombs_cnt=0;
 			Dungeon.food_cnt=0;
 			Dungeon.potions_cnt=0;
 			Dungeon.scrolls_cnt=0;
 
-			Dungeon.spells_cnt=0;
+			Dungeon.spells_cnt=0;*/
 			this.dst = stairs;
 		}
 	}

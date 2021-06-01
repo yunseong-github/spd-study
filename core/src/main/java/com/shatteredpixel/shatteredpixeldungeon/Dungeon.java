@@ -251,7 +251,7 @@ public class Dungeon {
 			dataEpisode.get(i).depth = depth;
 		AWSService aws = new AWSService();
 		Data.makeCSV(dataEpisode);
-		File test = new File("C:\\Program Files\\temp_data.csv");
+		File test = new File("C:\\spd\\temp_data.csv");
 //			aws.uploadFile(csv);
 		aws.uploadFile(test);
 	}
