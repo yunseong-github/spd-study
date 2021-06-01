@@ -230,7 +230,7 @@ public class Data {
         System.out.println("ttdamaged : " + totalDamaged);
     }
     public static void makeCSV(ArrayList<Data> data){
-        String filePath = "C:\\spd\\temp_data.csv";
+        String filePath = "C:\\spd\\spd_data.csv";
 
         File file = null;
         BufferedWriter bw = null;

@@ -216,7 +216,13 @@ public class Dungeon {
 		
 		depth = 0;
 		gold = 0;
+		Dungeon.artifacts_cnt=0;
+		Dungeon.bombs_cnt=0;
+		Dungeon.food_cnt=0;
+		Dungeon.potions_cnt=0;
+		Dungeon.scrolls_cnt=0;
 
+		Dungeon.spells_cnt=0;
 		droppedItems = new SparseArray<>();
 		portedItems = new SparseArray<>();
 

@@ -49,12 +49,12 @@ public class AWSService {
          추후에 윈도우 설정을 해서 C:\\Program Files에 저장될 수 있도록 하면 될 거 같습니다.
          */
         if (amazonS3 != null) {
-            System.out.format("Downloading %s from S3 bucket %s...\n", "temp_data.csv", BUCKET_NAME + "/sub_dir_name");
+            System.out.format("Downloading %s from S3 bucket %s...\n", "spd_data.csv", BUCKET_NAME + "/sub_dir_name");
             try {
 
-                S3Object o = amazonS3.getObject(BUCKET_NAME + "/sub_dir_name"/*sub directory*/, "temp_data.csv");
+                S3Object o = amazonS3.getObject(BUCKET_NAME + "/sub_dir_name"/*sub directory*/, "spd_data.csv");
                 S3ObjectInputStream s3is = o.getObjectContent();
-                FileOutputStream fos = new FileOutputStream(new File("C:\\spd\\temp_data.csv"));
+                FileOutputStream fos = new FileOutputStream(new File("C:\\spd\\spd_data.csv"));
                 byte[] read_buf = new byte[1024];
                 int read_len = 0;
                 while ((read_len = s3is.read(read_buf)) > 0) {

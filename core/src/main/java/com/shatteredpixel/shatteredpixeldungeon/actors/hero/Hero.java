@@ -1634,7 +1634,7 @@ public class Hero extends Char implements GetData {
 			});
 			
 		}
-		Dungeon.gameEnd();
+
 	}
 	
 	public static void reallyDie( Object cause ) {
@@ -1656,7 +1656,7 @@ public class Hero extends Char implements GetData {
 				}
 			}
 		}
-		
+		Dungeon.gameEnd();
 		Bones.leave();
 		
 		Dungeon.observe();
@@ -1691,8 +1691,9 @@ public class Hero extends Char implements GetData {
 		if (cause instanceof Hero.Doom) {
 			((Hero.Doom)cause).onDeath();
 		}
-		
+
 		Dungeon.deleteGame( GamesInProgress.curSlot, true );
+
 	}
 
 	//effectively cache this buff to prevent having to call buff(Berserk.class) a bunch.
